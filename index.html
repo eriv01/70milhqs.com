@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Pack HQs — 70.000 Raridades</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #080808;
+    --bg2:     #0d0d0d;
+    --bg3:     #111;
+    --green:   #00e676;
+    --green2:  #69ff47;
+    --greend:  #00a152;
+    --gold:    #ffd600;
+    --gold2:   #ffe566;
+    --text:    #f0f0f0;
+    --muted:   #666;
+    --card:    #111;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 80px;
+  }
+
+  /* ── GRAIN ── */
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:999; opacity:.3;
+  }
+
+  /* ── BARRA TOPO ── */
+  .top-bar {
+    background: #005bea;
+    background: linear-gradient(90deg,#005bea,#0075ff,#005bea);
+    padding: 9px 16px;
+    text-align: center;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    position: relative;
+    z-index: 10;
+  }
+  .top-bar span { opacity: .85; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 36px 22px 24px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,230,118,.09) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 30% at 80% 90%, rgba(255,214,0,.06) 0%, transparent 60%),
+      var(--bg);
+    z-index: 0;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,230,118,.14) 0%, transparent 70%);
+    top: -80px; left: 50%; transform: translateX(-50%);
+    animation: glow-pulse 4s ease-in-out infinite; z-index: 0;
+  }
+  @keyframes glow-pulse {
+    0%,100%{opacity:.5;transform:translateX(-50%) scale(1)}
+    50%{opacity:1;transform:translateX(-50%) scale(1.15)}
+  }
+
+  /* ── HEADLINE ── */
+  .headline {
+    position: relative; z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.65rem, 6.5vw, 2.4rem);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -.3px;
+    margin-bottom: 10px;
+    max-width: 400px;
+  }
+  .headline .hl-gold { color: var(--gold); }
+
+  /* contador inline */
+  .headline-count {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(0,230,118,.1);
+    border: 1px solid rgba(0,230,118,.3);
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 1px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .headline-count .hc-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green);
+    animation: hc-blink 1.8s ease-in-out infinite;
+  }
+  @keyframes hc-blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+  .subheadline {
+    position: relative; z-index: 1;
+    font-size: clamp(.88rem, 3vw, 1rem);
+    font-weight: 400;
+    color: #aaa;
+    max-width: 360px;
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+  .subheadline strong { color: var(--gold); font-weight: 600; }
+  .subheadline .sh-green { color: var(--green); font-weight: 600; }
+
+  /* ── FAN ── */
+  .mockup-scene {
+    position: relative; z-index: 1;
+    width: 100%;
+    height: 390px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 14px;
+  }
+
+  .fan-wrap {
+    position: relative;
+    width: 200px;
+    height: 290px;
+  }
+
+  .fan-card {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 182px;
+    height: 262px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid rgba(0,230,118,.35);
+    box-shadow: 0 14px 50px rgba(0,0,0,.8);
+    transform-origin: bottom center;
+    opacity: 0;
+    transform: translateY(140%) rotate(0deg);
+    will-change: transform, opacity;
+  }
+
+  .fan-card img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    filter: brightness(.92) contrast(1.06) saturate(1.1);
+    transition: opacity .45s ease;
+  }
+
+  .fan-card::after {
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.55) 100%);
+    pointer-events:none;
+  }
+
+  .fan-card.animate {
+    animation: fan-rise .75s cubic-bezier(.16,1,.3,1) forwards;
+  }
+  @keyframes fan-rise {
+    0%  { opacity:0; transform:translateY(140%) rotate(var(--rot-start)); }
+    55% { opacity:1; }
+    100%{ opacity:1; transform:translateY(0) rotate(var(--rot-end)); }
+  }
+
+  .fan-card:nth-child(1){ --rot-start:-44deg; --rot-end:-34deg; z-index:1; animation-delay:.05s; }
+  .fan-card:nth-child(2){ --rot-start:-24deg; --rot-end:-17deg; z-index:2; animation-delay:.16s; }
+  .fan-card:nth-child(3){ --rot-start: -4deg; --rot-end:  0deg; z-index:5; animation-delay:.27s;
+    width:196px; height:278px; left:-7px;
+    border-color:rgba(0,230,118,.7);
+    box-shadow:0 20px 60px rgba(0,230,118,.25);
+    animation: fan-rise .75s cubic-bezier(.16,1,.3,1) .27s forwards,
+               fan-float 3.8s ease-in-out 1.2s infinite;
+  }
+  .fan-card:nth-child(4){ --rot-start: 16deg; --rot-end: 17deg; z-index:2; animation-delay:.38s; }
+  .fan-card:nth-child(5){ --rot-start: 36deg; --rot-end: 34deg; z-index:1; animation-delay:.49s; }
+
+  @keyframes fan-float {
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%    { transform:translateY(-8px) rotate(0deg); }
+  }
+
+  .fan-glow {
+    position:absolute; bottom:8px; left:50%;
+    transform:translateX(-50%);
+    width:240px; height:32px;
+    background:radial-gradient(ellipse, rgba(0,230,118,.45) 0%, transparent 70%);
+    filter:blur(12px);
+    animation:fan-glow-p 3.5s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes fan-glow-p{0%,100%{opacity:.5;width:200px}50%{opacity:1;width:260px}}
+
+  .mockup-badge {
+    position:absolute; top:10px; right:14px;
+    background:var(--green); color:#000;
+    font-size:9px; font-weight:800;
+    letter-spacing:1.5px; text-transform:uppercase;
+    padding:5px 11px; border-radius:100px;
+    box-shadow:0 4px 20px rgba(0,230,118,.45);
+    z-index:20;
+  }
+
+  /* ── CTA BTN ── */
+  .cta-btn {
+    position:relative; z-index:1;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    background: linear-gradient(135deg, var(--green), var(--greend));
+    color:#000;
+    font-family:'Montserrat', sans-serif;
+    font-size:1.05rem; font-weight:900;
+    letter-spacing:1.5px; text-transform:uppercase;
+    padding:19px 36px; border-radius:14px; border:none;
+    cursor:pointer; text-decoration:none;
+    box-shadow:0 8px 32px rgba(0,230,118,.4), 0 0 0 0 rgba(0,230,118,.2);
+    animation:cta-pulse 2.4s ease-in-out infinite;
+    transition:transform .2s; width:100%; max-width:360px;
+  }
+  .cta-btn:active{transform:scale(.97)}
+  @keyframes cta-pulse{
+    0%,100%{box-shadow:0 8px 32px rgba(0,230,118,.4),0 0 0 0 rgba(0,230,118,.2)}
+    50%    {box-shadow:0 8px 42px rgba(0,230,118,.6),0 0 0 14px rgba(0,230,118,0)}
+  }
+  .cta-sub {
+    font-size:11px; color:var(--muted);
+    margin-top:10px; letter-spacing:.5px;
+    position:relative; z-index:1;
+  }
+
+  /* ── TICKER X ── */
+  .ticker-x-wrap {
+    position:relative; width:100vw;
+    left:50%; transform:translateX(-50%);
+    height:100px; margin-top:28px;
+    z-index:1; pointer-events:none; overflow:visible;
+  }
+  .ticker-band {
+    position:absolute; left:-60%; width:220%;
+    padding:8px 0; display:flex; overflow:hidden;
+    white-space:nowrap; background:transparent;
+  }
+  .ticker-band-1{
+    top:20px; transform:rotate(-8deg);
+    border-top:1px solid rgba(0,230,118,.5);
+    border-bottom:1px solid rgba(0,230,118,.5);
+    background:rgba(0,230,118,.04);
+    z-index:2;
+  }
+  .ticker-band-2{
+    top:52px; transform:rotate(8deg);
+    border-top:1px solid rgba(0,230,118,.25);
+    border-bottom:1px solid rgba(0,230,118,.25);
+    z-index:1;
+  }
+  .ticker-band .ticker-track{display:flex;width:max-content;flex-shrink:0;}
+  .ticker-band-1 .ticker-track{animation:tick-scroll 18s linear infinite;}
+  .ticker-band-2 .ticker-track{animation:tick-scroll-r 22s linear infinite;}
+  @keyframes tick-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes tick-scroll-r{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+  .ticker-item{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:0 20px; white-space:nowrap; flex-shrink:0;
+  }
+  .t-name{
+    font-family:'Montserrat',sans-serif;
+    font-size:1rem; font-weight:800;
+    color:#c8ffd6; letter-spacing:3px; text-transform:uppercase;
+  }
+  .t-sep{color:rgba(0,230,118,.5);font-size:10px;padding-left:6px;}
+
+  /* ── SECTION BASE ── */
+  section{padding:60px 20px;position:relative;}
+  .section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+  .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,5.5vw,2.1rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
+  .section-sub{font-size:.88rem;color:var(--muted);margin-bottom:32px;line-height:1.65;}
+
+  /* ── BENEFITS ── */
+  .benefits-section{background:var(--bg);}
+  .benefits-section .inner{max-width:480px;margin:0 auto;}
+  .benefit-item{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+  .benefit-item:last-child{border-bottom:none;}
+  .benefit-icon{width:42px;height:42px;border-radius:12px;background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.2);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+  .benefit-text h4{font-size:.92rem;font-weight:700;margin-bottom:3px;}
+  .benefit-text p{font-size:.8rem;color:var(--muted);line-height:1.55;}
+
+  /* ── OFFER ── */
+  .offer-section{background:var(--bg2);text-align:center;}
+  .offer-section .inner{max-width:460px;margin:0 auto;}
+  .offer-card{
+    background:var(--card);
+    border:1px solid rgba(0,230,118,.25);
+    border-radius:22px; padding:28px 22px 24px;
+    position:relative; overflow:hidden;
+    box-shadow:0 0 60px rgba(0,230,118,.08);
+  }
+  .offer-card::before{
+    content:''; position:absolute;
+    top:0;left:0;right:0; height:3px;
+    background:linear-gradient(90deg,var(--green),var(--gold),var(--green));
+  }
+  .offer-ribbon{
+    position:absolute; top:16px; right:-26px;
+    background:var(--green); color:#000;
+    font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+    padding:5px 34px; transform:rotate(45deg);
+  }
+  .offer-title{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:5px;}
+  .offer-sub{font-size:.8rem;color:var(--muted);margin-bottom:24px;}
+  .price-old{font-size:.83rem;color:var(--muted);text-decoration:line-through;margin-bottom:3px;}
+  .price-new{font-family:'Montserrat',sans-serif;font-size:2.8rem;font-weight:900;color:var(--text);line-height:1;margin-bottom:3px;}
+  .price-new span{font-size:1.3rem;color:var(--muted);font-weight:400;}
+  .price-tag{font-size:.76rem;color:#4caf91;margin-bottom:24px;display:flex;align-items:center;justify-content:center;gap:5px;}
+  .scarcity-bar{width:100%;height:4px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin-bottom:6px;}
+  .scarcity-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--green2));border-radius:99px;animation:scar-fill 2.5s ease forwards;}
+  @keyframes scar-fill{to{width:31%}}
+  .scarcity-txt{font-size:.7rem;color:var(--muted);margin-bottom:20px;letter-spacing:.3px;}
+  .what-you-get{text-align:left;margin-bottom:24px;}
+  .what-item{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.83rem;}
+  .what-item:last-child{border-bottom:none;}
+  .what-item .check{color:var(--green);font-size:13px;flex-shrink:0;}
+
+  .buy-btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;
+    background:linear-gradient(135deg,var(--green),var(--greend));
+    color:#000;
+    font-family:'Montserrat',sans-serif;
+    font-size:1rem;font-weight:900;
+    letter-spacing:1.5px;text-transform:uppercase;
+    padding:19px;border-radius:12px;border:none;
+    cursor:pointer;text-decoration:none;
+    box-shadow:0 8px 30px rgba(0,230,118,.35);
+    animation:cta-pulse 2.4s ease-in-out infinite;
+    transition:transform .2s;
+  }
+  .buy-btn:active{transform:scale(.97)}
+
+  .secure-badges{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;flex-wrap:wrap;}
+  .sec-badge{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--muted);}
+
+  /* ── SOCIAL PROOF ── */
+  .social-proof{background:var(--bg2);padding:18px 20px;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);}
+  .sp-inner{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
+  .sp-item{display:flex;flex-direction:column;align-items:center;gap:2px;}
+  .sp-num{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;color:var(--text);}
+  .sp-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+  .sp-divider{width:1px;height:34px;background:rgba(255,255,255,.07);}
+
+  /* ── FAQ ── */
+  .faq-section{background:var(--bg2);}
+  .faq-section .inner{max-width:480px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid rgba(255,255,255,.06);}
+  .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;text-align:left;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;line-height:1.4;}
+  .faq-q .faq-arrow{font-size:17px;flex-shrink:0;color:var(--green);transition:transform .3s cubic-bezier(.16,1,.3,1);}
+  .faq-item.open .faq-arrow{transform:rotate(180deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1);}
+  .faq-item.open .faq-a{max-height:260px;}
+  .faq-a p{font-size:.82rem;color:var(--muted);line-height:1.7;padding-bottom:18px;}
+  .faq-a p strong{color:var(--text);}
+
+  /* ── FOOTER ── */
+  footer{background:var(--bg);padding:28px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.04);}
+  footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;margin:0 auto;}
+  footer .footer-logo{font-family:'Montserrat',sans-serif;font-size:1rem;color:var(--green);margin-bottom:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
+
+  /* ── FLOATING BAR ── */
+  .float-bar{
+    position:fixed;bottom:0;left:0;right:0;
+    background:rgba(8,8,8,.96);backdrop-filter:blur(20px);
+    border-top:1px solid rgba(0,230,118,.2);
+    padding:11px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    z-index:100;transform:translateY(100%);
+    transition:transform .4s cubic-bezier(.16,1,.3,1);
+  }
+  .float-bar.visible{transform:translateY(0);}
+  .float-bar .fb-text strong{font-size:.83rem;display:block;}
+  .float-bar .fb-text small{font-size:.7rem;color:var(--green);}
+  .float-bar .fb-btn{
+    background:var(--green);color:#000;
+    font-family:'Montserrat',sans-serif;
+    font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;
+    padding:11px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;flex-shrink:0;
+  }
+
+  /* PATTERN BG */
+  .pattern-bg::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(0,230,118,.015) 0,rgba(0,230,118,.015) 1px,transparent 0,transparent 50%);background-size:20px 20px;pointer-events:none;}
+</style>
+</head>
+<body>
+
+<!-- BARRA TOPO -->
+<div class="top-bar">
+  🔥 Promoção só HOJE nesta página: <span id="topDate"></span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+
+  <h1 class="headline">
+    Tenha acesso imediato a <span class="hl-gold">mais de 70.000 HQs raras</span> clássicas e modernas para baixar e ler onde quiser.<br>
+    <span class="headline-count"><span class="hc-dot"></span>70.000+ títulos</span>
+  </h1>
+
+  <p class="subheadline">
+    Tudo organizado por sagas, personagens e editoras, com <span class="sh-green">acesso vitalício</span>, leitura offline e <strong>liberação imediata</strong> por um valor simbólico e <strong>pagamento único.</strong>
+  </p>
+
+  <!-- FAN DE CARTAS -->
+  <div class="mockup-scene">
+    <div class="mockup-badge">EXCLUSIVO</div>
+    <div class="fan-wrap" id="fanWrap">
+      <div class="fan-card">
+        <img src="" alt="HQ 1" id="fc1" />
+      </div>
+      <div class="fan-card">
+        <img src="" alt="HQ 2" id="fc2" />
+      </div>
+      <div class="fan-card">
+        <img src="" alt="HQ 3" id="fc3" />
+      </div>
+      <div class="fan-card">
+        <img src="" alt="HQ 4" id="fc4" />
+      </div>
+      <div class="fan-card">
+        <img src="" alt="HQ 5" id="fc5" />
+      </div>
+    </div>
+    <div class="fan-glow"></div>
+  </div>
+
+  <a href="#oferta" class="cta-btn">
+    ⚡ QUERO ACESSO AGORA
+  </a>
+  <p class="cta-sub">✅ Acesso imediato · Pagamento único · Leitura offline</p>
+
+  <!-- TICKER -->
+  <div class="ticker-x-wrap">
+    <div class="ticker-band ticker-band-1">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="t-name">3789 VENDAS HOJE</span><span class="t-sep">🔥</span></div>
+        <div class="ticker-item"><span class="t-name">ENTREGA IMEDIATA</span><span class="t-sep">⚡</span></div>
+        <div class="ticker-item"><span class="t-name">70.000 HQs</span><span class="t-sep">🔥</span></div>
+        <div class="ticker-item"><span class="t-name">3789 VENDAS HOJE</span><span class="t-sep">🔥</span></div>
+        <div class="ticker-item"><span class="t-name">ENTREGA IMEDIATA</span><span class="t-sep">⚡</span></div>
+        <div class="ticker-item"><span class="t-name">70.000 HQs</span><span class="t-sep">🔥</span></div>
+        <div class="ticker-item"><span class="t-name">3789 VENDAS HOJE</span><span class="t-sep">🔥</span></div>
+        <div class="ticker-item"><span class="t-name">ENTREGA IMEDIATA</span><span class="t-sep">⚡</span></div>
+        <div class="ticker-item"><span class="t-name">70.000 HQs</span><span class="t-sep">🔥</span></div>
+        <div class="ticker-item"><span class="t-name">3789 VENDAS HOJE</span><span class="t-sep">🔥</span></div>
+        <div class="ticker-item"><span class="t-name">ENTREGA IMEDIATA</span><span class="t-sep">⚡</span></div>
+        <div class="ticker-item"><span class="t-name">70.000 HQs</span><span class="t-sep">🔥</span></div>
+      </div>
+    </div>
+    <div class="ticker-band ticker-band-2">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="t-name">ACESSO VITALÍCIO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">PAGAMENTO ÚNICO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">LEITURA OFFLINE</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">ACESSO VITALÍCIO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">PAGAMENTO ÚNICO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">LEITURA OFFLINE</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">ACESSO VITALÍCIO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">PAGAMENTO ÚNICO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">LEITURA OFFLINE</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">ACESSO VITALÍCIO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">PAGAMENTO ÚNICO</span><span class="t-sep">✦</span></div>
+        <div class="ticker-item"><span class="t-name">LEITURA OFFLINE</span><span class="t-sep">✦</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof">
+  <div class="sp-inner">
+    <div class="sp-item">
+      <span class="sp-num">70k+</span>
+      <span class="sp-label">Títulos</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-num">⭐ 4.9</span>
+      <span class="sp-label">Avaliação</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-num">12k+</span>
+      <span class="sp-label">Leitores</span>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <span class="sp-num">⚡ Imediato</span>
+      <span class="sp-label">Acesso</span>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // ── Data na barra topo ──
+  const d = new Date();
+  const opts = { day:'2-digit', month:'2-digit', year:'numeric' };
+  document.getElementById('topDate').textContent = d.toLocaleDateString('pt-BR', opts);
+
+  // ── Fan: dispara animações ──
+  (function(){
+    const cards = document.querySelectorAll('.fan-card');
+    setTimeout(() => cards.forEach(c => c.classList.add('animate')), 100);
+  })();
+</script>
+</body>
+</html>
