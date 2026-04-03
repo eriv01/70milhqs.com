@@ -77,6 +77,141 @@
     z-index: 0;
   }
 
+  /* ── FUNDO TEMÁTICO HQ ── */
+  .hero-hq-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* padrão halftone */
+  .hero-hq-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,230,118,.18) 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: .35;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
+  }
+
+  /* raios explosivos atrás da headline */
+  .hq-burst {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+    height: 340px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg, rgba(255,214,0,.07) 8deg,
+      transparent 9deg, rgba(255,214,0,.07) 17deg,
+      transparent 18deg, rgba(255,214,0,.07) 26deg,
+      transparent 27deg, rgba(255,214,0,.07) 35deg,
+      transparent 36deg, rgba(255,214,0,.07) 44deg,
+      transparent 45deg, rgba(255,214,0,.07) 53deg,
+      transparent 54deg, rgba(255,214,0,.07) 62deg,
+      transparent 63deg, rgba(255,214,0,.07) 71deg,
+      transparent 72deg, rgba(255,214,0,.07) 80deg,
+      transparent 81deg, rgba(255,214,0,.07) 89deg,
+      transparent 90deg, rgba(255,214,0,.07) 98deg,
+      transparent 99deg, rgba(255,214,0,.07) 107deg,
+      transparent 108deg, rgba(255,214,0,.07) 116deg,
+      transparent 117deg, rgba(255,214,0,.07) 125deg,
+      transparent 126deg, rgba(255,214,0,.07) 134deg,
+      transparent 135deg, rgba(255,214,0,.07) 143deg,
+      transparent 144deg, rgba(255,214,0,.07) 152deg,
+      transparent 153deg, rgba(255,214,0,.07) 161deg,
+      transparent 162deg, rgba(255,214,0,.07) 170deg,
+      transparent 171deg, rgba(255,214,0,.07) 179deg,
+      transparent 180deg, rgba(255,214,0,.07) 188deg,
+      transparent 189deg, rgba(255,214,0,.07) 197deg,
+      transparent 198deg, rgba(255,214,0,.07) 206deg,
+      transparent 207deg, rgba(255,214,0,.07) 215deg,
+      transparent 216deg, rgba(255,214,0,.07) 224deg,
+      transparent 225deg, rgba(255,214,0,.07) 233deg,
+      transparent 234deg, rgba(255,214,0,.07) 242deg,
+      transparent 243deg, rgba(255,214,0,.07) 251deg,
+      transparent 252deg, rgba(255,214,0,.07) 260deg,
+      transparent 261deg, rgba(255,214,0,.07) 269deg,
+      transparent 270deg, rgba(255,214,0,.07) 278deg,
+      transparent 279deg, rgba(255,214,0,.07) 287deg,
+      transparent 288deg, rgba(255,214,0,.07) 296deg,
+      transparent 297deg, rgba(255,214,0,.07) 305deg,
+      transparent 306deg, rgba(255,214,0,.07) 314deg,
+      transparent 315deg, rgba(255,214,0,.07) 323deg,
+      transparent 324deg, rgba(255,214,0,.07) 332deg,
+      transparent 333deg, rgba(255,214,0,.07) 341deg,
+      transparent 342deg, rgba(255,214,0,.07) 350deg,
+      transparent 351deg, rgba(255,214,0,.07) 359deg
+    );
+    border-radius: 50%;
+    animation: burst-spin 30s linear infinite;
+  }
+  @keyframes burst-spin {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(360deg); }
+  }
+
+  /* onomatopeias flutuando */
+  .hq-ono {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    animation: ono-float 6s ease-in-out infinite;
+  }
+  .hq-ono-1 {
+    font-size: 2.8rem;
+    color: rgba(255,214,0,.12);
+    top: 4%; left: -4%;
+    transform: rotate(-18deg);
+    animation-delay: 0s;
+  }
+  .hq-ono-2 {
+    font-size: 2rem;
+    color: rgba(0,230,118,.1);
+    top: 8%; right: -2%;
+    transform: rotate(12deg);
+    animation-delay: 1.5s;
+  }
+  .hq-ono-3 {
+    font-size: 1.5rem;
+    color: rgba(255,214,0,.08);
+    top: 44%; left: -6%;
+    transform: rotate(-8deg);
+    animation-delay: 3s;
+  }
+  .hq-ono-4 {
+    font-size: 1.8rem;
+    color: rgba(0,230,118,.07);
+    top: 38%; right: -5%;
+    transform: rotate(16deg);
+    animation-delay: 4.5s;
+  }
+  @keyframes ono-float {
+    0%   { opacity: 0; transform: translateY(6px) rotate(var(--r, -18deg)); }
+    20%  { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-6px) rotate(var(--r, -18deg)); }
+  }
+
+  /* bordas estilo quadrinho */
+  .hq-panel-border {
+    position: absolute;
+    top: 6px; left: 6px; right: 6px;
+    height: 56%;
+    border: 2px solid rgba(255,214,0,.06);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+
   .hero-glow {
     position: absolute;
     width: 300px; height: 300px; border-radius: 50%;
@@ -126,14 +261,14 @@
 
   .subheadline {
     position: relative; z-index: 1;
-    font-size: clamp(.88rem, 3vw, 1rem);
+    font-size: clamp(.82rem, 2.8vw, .95rem);
     font-weight: 400;
-    color: #aaa;
-    max-width: 360px;
-    line-height: 1.65;
+    color: #999;
+    max-width: 380px;
+    line-height: 2;
     margin-bottom: 8px;
   }
-  .subheadline strong { color: var(--gold); font-weight: 600; }
+  .subheadline strong { color: var(--text); font-weight: 700; }
   .subheadline .sh-green { color: var(--green); font-weight: 600; }
 
   /* ── FAN ── */
@@ -386,7 +521,111 @@
   .faq-a p{font-size:.82rem;color:var(--muted);line-height:1.7;padding-bottom:18px;}
   .faq-a p strong{color:var(--text);}
 
-  /* ── FOOTER ── */
+  /* ── CATEGORIAS ── */
+  .cats-section {
+    background: var(--bg);
+    padding: 48px 20px 52px;
+    position: relative;
+  }
+  .cats-section .inner { max-width: 480px; margin: 0 auto; }
+
+  .cats-label {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--green); margin-bottom: 8px;
+  }
+  .cats-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+    font-weight: 900; line-height: 1.2; margin-bottom: 28px;
+  }
+  .cats-title span { color: var(--gold); }
+
+  .cat-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cat-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.07);
+    border-left: 3px solid var(--green);
+    border-radius: 12px;
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: border-color .3s, box-shadow .3s;
+  }
+
+  .cat-item.visible {
+    animation: cat-slide .5s cubic-bezier(.16,1,.3,1) forwards;
+  }
+
+  @keyframes cat-slide {
+    from { opacity: 0; transform: translateX(-24px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .cat-item:nth-child(1) { animation-delay: .05s; }
+  .cat-item:nth-child(2) { animation-delay: .10s; border-left-color: #ff2d55; }
+  .cat-item:nth-child(3) { animation-delay: .15s; border-left-color: #9c27b0; }
+  .cat-item:nth-child(4) { animation-delay: .20s; border-left-color: var(--gold); }
+  .cat-item:nth-child(5) { animation-delay: .25s; border-left-color: #ff6d00; }
+  .cat-item:nth-child(6) { animation-delay: .30s; border-left-color: #0091ea; }
+  .cat-item:nth-child(7) { animation-delay: .35s; border-left-color: var(--green); }
+  .cat-item:nth-child(8) { animation-delay: .40s; border-left-color: var(--gold); }
+
+  .cat-item:hover {
+    border-color: rgba(255,255,255,.18);
+    box-shadow: 0 4px 24px rgba(0,0,0,.5);
+  }
+
+  .cat-item::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,.03) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cat-emoji {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,.04);
+    border-radius: 10px;
+  }
+
+  .cat-info { flex: 1; }
+  .cat-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: .92rem; font-weight: 800;
+    color: var(--text); margin-bottom: 2px;
+  }
+  .cat-desc {
+    font-size: .75rem; color: var(--muted); line-height: 1.4;
+  }
+
+  .cat-badge {
+    font-size: .65rem; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 100px;
+    white-space: nowrap; flex-shrink: 0;
+    background: rgba(0,230,118,.12);
+    border: 1px solid rgba(0,230,118,.25);
+    color: var(--green);
+  }
+  .cat-item:nth-child(2) .cat-badge { background:rgba(255,45,85,.1); border-color:rgba(255,45,85,.3); color:#ff2d55; }
+  .cat-item:nth-child(3) .cat-badge { background:rgba(156,33,176,.1); border-color:rgba(156,33,176,.3); color:#ce93d8; }
+  .cat-item:nth-child(4) .cat-badge { background:rgba(255,214,0,.1); border-color:rgba(255,214,0,.3); color:var(--gold); }
+  .cat-item:nth-child(5) .cat-badge { background:rgba(255,109,0,.1); border-color:rgba(255,109,0,.3); color:#ff9d40; }
+  .cat-item:nth-child(6) .cat-badge { background:rgba(0,145,234,.1); border-color:rgba(0,145,234,.3); color:#40c4ff; }
+  .cat-item:nth-child(8) .cat-badge { background:rgba(255,214,0,.1); border-color:rgba(255,214,0,.3); color:var(--gold); }
   footer{background:var(--bg);padding:28px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.04);}
   footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;margin:0 auto;}
   footer .footer-logo{font-family:'Montserrat',sans-serif;font-size:1rem;color:var(--green);margin-bottom:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
@@ -427,18 +666,22 @@
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
 
-  <h1 class="headline">
-    Tenha acesso imediato a <span class="hl-gold">mais de 70.000 HQs raras</span> clássicas e modernas para baixar e ler onde quiser.<br>
-    <span class="headline-count"><span class="hc-dot"></span>70.000+ títulos</span>
-  </h1>
+  <!-- FUNDO TEMÁTICO HQ -->
+  <div class="hero-hq-bg">
+    <div class="hq-burst"></div>
+    <div class="hq-panel-border"></div>
+    <div class="hq-ono hq-ono-1" style="--r:-18deg">POW!</div>
+    <div class="hq-ono hq-ono-2" style="--r:12deg">BAM!</div>
+    <div class="hq-ono hq-ono-3" style="--r:-8deg">ZAP!</div>
+    <div class="hq-ono hq-ono-4" style="--r:16deg">KA-POW!</div>
+  </div>
 
-  <p class="subheadline">
-    Tudo organizado por sagas, personagens e editoras, com <span class="sh-green">acesso vitalício</span>, leitura offline e <strong>liberação imediata</strong> por um valor simbólico e <strong>pagamento único.</strong>
-  </p>
+  <h1 class="headline">
+    Tenha acesso a <span class="hl-gold">+70k HQs, Mangás, Gibis, Revistas Antigas, Livros Raros</span> e <span class="hl-gold">Conteúdo +18</span> — vitalício e ilimitado.
+  </h1>
 
   <!-- FAN DE CARTAS -->
   <div class="mockup-scene">
-    <div class="mockup-badge">EXCLUSIVO</div>
     <div class="fan-wrap" id="fanWrap">
       <div class="fan-card">
         <img src="" alt="HQ 1" id="fc1" />
@@ -504,11 +747,6 @@
 <!-- SOCIAL PROOF -->
 <div class="social-proof">
   <div class="sp-inner">
-    <div class="sp-item">
-      <span class="sp-num">70k+</span>
-      <span class="sp-label">Títulos</span>
-    </div>
-    <div class="sp-divider"></div>
     <div class="sp-item">
       <span class="sp-num">⭐ 4.9</span>
       <span class="sp-label">Avaliação</span>
