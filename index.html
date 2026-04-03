@@ -652,6 +652,56 @@
 
   /* PATTERN BG */
   .pattern-bg::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(0,230,118,.015) 0,rgba(0,230,118,.015) 1px,transparent 0,transparent 50%);background-size:20px 20px;pointer-events:none;}
+
+  /* ── SEÇÃO RAIVA ── */
+  .raiva-section {
+    background: #f0f0f0;
+    padding: 48px 20px 52px;
+  }
+  .raiva-section .inner { max-width: 440px; margin: 0 auto; }
+  .raiva-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-weight: 900;
+    color: #111;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+  .raiva-block {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 14px rgba(0,0,0,.08);
+  }
+  .raiva-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+  }
+  .raiva-row + .raiva-row {
+    border-top: 1px solid #f0f0f0;
+    margin-top: 4px;
+  }
+  .raiva-icon {
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0; margin-top: 1px;
+  }
+  .raiva-icon.bad  { background: #fde8e8; color: #e53935; }
+  .raiva-icon.good { background: #e8f5e9; color: #2e7d32; }
+  .raiva-bad-text {
+    font-size: .84rem; line-height: 1.5;
+    color: #888; font-style: italic;
+  }
+  .raiva-good-text {
+    font-size: .9rem; line-height: 1.5;
+    color: #111; font-weight: 700;
+    border-left: 3px solid #2e7d32;
+    padding-left: 10px;
+  }
 </style>
 </head>
 <body>
@@ -764,9 +814,56 @@
   </div>
 </div>
 
+<!-- SEÇÃO RAIVA -->
+<section class="raiva-section">
+  <div class="inner">
+    <h2 class="raiva-title">Chega de passar raiva na internet!</h2>
 
+    <div class="raiva-block">
+      <div class="raiva-row">
+        <div class="raiva-icon bad">✕</div>
+        <span class="raiva-bad-text">Perde horas procurando HQs boas pra baixar?</span>
+      </div>
+      <div class="raiva-row">
+        <div class="raiva-icon good">✓</div>
+        <span class="raiva-good-text">Aqui está tudo pronto, limpo e organizado.</span>
+      </div>
+    </div>
 
-<script>
+    <div class="raiva-block">
+      <div class="raiva-row">
+        <div class="raiva-icon bad">✕</div>
+        <span class="raiva-bad-text">Baixava HQs com vírus ou arquivos quebrados?</span>
+      </div>
+      <div class="raiva-row">
+        <div class="raiva-icon good">✓</div>
+        <span class="raiva-good-text">Agora tem acesso 100% seguro.</span>
+      </div>
+    </div>
+
+    <div class="raiva-block">
+      <div class="raiva-row">
+        <div class="raiva-icon bad">✕</div>
+        <span class="raiva-bad-text">Não consegue completar coleções clássicas ou raras?</span>
+      </div>
+      <div class="raiva-row">
+        <div class="raiva-icon good">✓</div>
+        <span class="raiva-good-text">Recebe todas as HQs completas e separadas por série.</span>
+      </div>
+    </div>
+
+    <div class="raiva-block">
+      <div class="raiva-row">
+        <div class="raiva-icon bad">✕</div>
+        <span class="raiva-bad-text">Não tem dinheiro pra comprar HQ física todo mês?</span>
+      </div>
+      <div class="raiva-row">
+        <div class="raiva-icon good">✓</div>
+        <span class="raiva-good-text">Acesso vitalício a +70 mil HQs por um precinho simbólico.</span>
+      </div>
+    </div>
+  </div>
+</section>
   // ── Data na barra topo ──
   const d = new Date();
   const opts = { day:'2-digit', month:'2-digit', year:'numeric' };
