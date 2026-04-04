@@ -32,7 +32,6 @@
     padding-bottom: 80px;
   }
 
-  /* ── GRAIN ── */
   body::before {
     content:'';
     position:fixed; inset:0;
@@ -40,34 +39,26 @@
     pointer-events:none; z-index:999; opacity:.3;
   }
 
-  /* ── BARRA TOPO ── */
+  /* BARRA TOPO */
   .top-bar {
-    background: #005bea;
     background: linear-gradient(90deg,#005bea,#0075ff,#005bea);
     padding: 9px 16px;
     text-align: center;
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #fff;
-    position: relative;
-    z-index: 10;
+    font-size: .75rem; font-weight: 700;
+    letter-spacing: 1px; color: #fff;
+    position: relative; z-index: 10;
   }
   .top-bar span { opacity: .85; }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     position: relative;
     min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start;
     padding: 36px 22px 24px;
-    text-align: center;
-    overflow: hidden;
+    text-align: center; overflow: hidden;
   }
-
   .hero-bg {
     position: absolute; inset: 0;
     background:
@@ -77,16 +68,11 @@
     z-index: 0;
   }
 
-  /* ── FUNDO TEMÁTICO HQ ── */
+  /* FUNDO TEMÁTICO HQ */
   .hero-hq-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
+    position: absolute; inset: 0; z-index: 0;
+    overflow: hidden; pointer-events: none;
   }
-
-  /* padrão halftone */
   .hero-hq-bg::before {
     content: '';
     position: absolute; inset: 0;
@@ -96,15 +82,10 @@
     mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
   }
-
-  /* raios explosivos atrás da headline */
   .hq-burst {
-    position: absolute;
-    top: 10%;
-    left: 50%;
+    position: absolute; top: 10%; left: 50%;
     transform: translateX(-50%);
-    width: 340px;
-    height: 340px;
+    width: 340px; height: 340px;
     background: conic-gradient(
       from 0deg,
       transparent 0deg, rgba(255,214,0,.07) 8deg,
@@ -155,61 +136,29 @@
     from { transform: translateX(-50%) rotate(0deg); }
     to   { transform: translateX(-50%) rotate(360deg); }
   }
-
-  /* onomatopeias flutuando */
   .hq-ono {
     position: absolute;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    pointer-events: none;
-    user-select: none;
+    font-weight: 900; text-transform: uppercase;
+    pointer-events: none; user-select: none;
     opacity: 0;
     animation: ono-float 6s ease-in-out infinite;
   }
-  .hq-ono-1 {
-    font-size: 2.8rem;
-    color: rgba(255,214,0,.12);
-    top: 4%; left: -4%;
-    transform: rotate(-18deg);
-    animation-delay: 0s;
-  }
-  .hq-ono-2 {
-    font-size: 2rem;
-    color: rgba(0,230,118,.1);
-    top: 8%; right: -2%;
-    transform: rotate(12deg);
-    animation-delay: 1.5s;
-  }
-  .hq-ono-3 {
-    font-size: 1.5rem;
-    color: rgba(255,214,0,.08);
-    top: 44%; left: -6%;
-    transform: rotate(-8deg);
-    animation-delay: 3s;
-  }
-  .hq-ono-4 {
-    font-size: 1.8rem;
-    color: rgba(0,230,118,.07);
-    top: 38%; right: -5%;
-    transform: rotate(16deg);
-    animation-delay: 4.5s;
-  }
+  .hq-ono-1 { font-size:2.8rem; color:rgba(255,214,0,.12); top:4%; left:-4%; transform:rotate(-18deg); animation-delay:0s; }
+  .hq-ono-2 { font-size:2rem;   color:rgba(0,230,118,.1);  top:8%; right:-2%; transform:rotate(12deg); animation-delay:1.5s; }
+  .hq-ono-3 { font-size:1.5rem; color:rgba(255,214,0,.08); top:44%; left:-6%; transform:rotate(-8deg); animation-delay:3s; }
+  .hq-ono-4 { font-size:1.8rem; color:rgba(0,230,118,.07); top:38%; right:-5%; transform:rotate(16deg); animation-delay:4.5s; }
   @keyframes ono-float {
-    0%   { opacity: 0; transform: translateY(6px) rotate(var(--r, -18deg)); }
-    20%  { opacity: 1; }
-    80%  { opacity: 1; }
-    100% { opacity: 0; transform: translateY(-6px) rotate(var(--r, -18deg)); }
+    0%   { opacity:0; transform:translateY(6px) rotate(var(--r,-18deg)); }
+    20%  { opacity:1; }
+    80%  { opacity:1; }
+    100% { opacity:0; transform:translateY(-6px) rotate(var(--r,-18deg)); }
   }
-
-  /* bordas estilo quadrinho */
   .hq-panel-border {
     position: absolute;
-    top: 6px; left: 6px; right: 6px;
-    height: 56%;
+    top: 6px; left: 6px; right: 6px; height: 56%;
     border: 2px solid rgba(255,214,0,.06);
-    border-radius: 4px;
-    pointer-events: none;
+    border-radius: 4px; pointer-events: none;
   }
 
   .hero-glow {
@@ -224,54 +173,27 @@
     50%{opacity:1;transform:translateX(-50%) scale(1.15)}
   }
 
-  /* ── HEADLINE ── */
+  /* HEADLINE */
   .headline {
     position: relative; z-index: 1;
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(1.65rem, 6.5vw, 2.4rem);
-    font-weight: 900;
-    line-height: 1.2;
+    font-weight: 900; line-height: 1.2;
     letter-spacing: -.3px;
-    margin-bottom: 10px;
-    max-width: 400px;
+    margin-bottom: 10px; max-width: 400px;
   }
   .headline .hl-gold { color: var(--gold); }
-
-  /* contador inline */
-  .headline-count {
-    display: inline-flex; align-items: center; gap: 5px;
-    background: rgba(0,230,118,.1);
-    border: 1px solid rgba(0,230,118,.3);
-    border-radius: 6px;
-    padding: 2px 9px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: .78rem;
-    font-weight: 700;
-    color: var(--green);
-    letter-spacing: 1px;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-  .headline-count .hc-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--green);
-    animation: hc-blink 1.8s ease-in-out infinite;
-  }
-  @keyframes hc-blink{0%,100%{opacity:1}50%{opacity:.25}}
 
   .subheadline {
     position: relative; z-index: 1;
     font-size: clamp(.82rem, 2.8vw, .95rem);
-    font-weight: 400;
-    color: #999;
-    max-width: 380px;
-    line-height: 2;
-    margin-bottom: 8px;
+    font-weight: 400; color: #999;
+    max-width: 380px; line-height: 2; margin-bottom: 8px;
   }
   .subheadline strong { color: var(--text); font-weight: 700; }
   .subheadline .sh-green { color: var(--green); font-weight: 600; }
 
-  /* ── FAN ── */
+  /* ── FAN — idêntico à página de revistas ── */
   .mockup-scene {
     position: relative; z-index: 1;
     width: 100%;
@@ -283,12 +205,23 @@
     padding-bottom: 16px;
   }
 
+  .mockup-badge {
+    position: absolute; top: 10px; right: 14px;
+    background: var(--green); color: #000;
+    font-size: 9px; font-weight: 800;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 100px;
+    box-shadow: 0 4px 20px rgba(0,230,118,.45);
+    z-index: 20;
+  }
+
   .fan-wrap {
     position: relative;
     width: 200px;
     height: 300px;
   }
 
+  /* cada card empilhado, gira a partir da base */
   .fan-card {
     position: absolute;
     bottom: 0; left: 0;
@@ -319,6 +252,7 @@
     pointer-events: none;
   }
 
+  /* ENTRADA: sobe de baixo */
   .fan-card.animate {
     animation: fan-rise .75s cubic-bezier(.16,1,.3,1) forwards;
   }
@@ -329,12 +263,14 @@
     100% { opacity: 1; transform: translateY(0) rotate(var(--rot-end)); }
   }
 
+  /* posições finais — leque aberto */
   .fan-card:nth-child(1) { --rot-start:-44deg; --rot-end:-34deg; z-index:1; animation-delay:.05s; }
   .fan-card:nth-child(2) { --rot-start:-24deg; --rot-end:-17deg; z-index:2; animation-delay:.16s; }
   .fan-card:nth-child(3) { --rot-start: -4deg; --rot-end:  0deg; z-index:5; animation-delay:.27s; }
   .fan-card:nth-child(4) { --rot-start: 16deg; --rot-end: 17deg; z-index:2; animation-delay:.38s; }
   .fan-card:nth-child(5) { --rot-start: 36deg; --rot-end: 34deg; z-index:1; animation-delay:.49s; }
 
+  /* card central maior com float */
   .fan-card:nth-child(3) {
     width: 200px; height: 284px; left: -7px;
     border-color: rgba(0,230,118,.75);
@@ -349,6 +285,11 @@
     50%     { transform: translateY(-8px) rotate(0deg); }
   }
 
+  /* troca de imagem com fade */
+  .fan-card img.fade-out { opacity: 0; }
+  .fan-card img.fade-in  { opacity: 1; }
+
+  /* glow embaixo */
   .fan-glow {
     position: absolute;
     bottom: 10px; left: 50%;
@@ -360,21 +301,11 @@
     pointer-events: none;
   }
   @keyframes fan-glow-p {
-    0%,100% { opacity: .5; width: 200px; }
-    50%     { opacity: 1;  width: 260px; }
+    0%,100% { opacity:.5; width:200px; }
+    50%     { opacity:1;  width:260px; }
   }
 
-  .mockup-badge {
-    position:absolute; top:10px; right:14px;
-    background:var(--green); color:#000;
-    font-size:9px; font-weight:800;
-    letter-spacing:1.5px; text-transform:uppercase;
-    padding:5px 11px; border-radius:100px;
-    box-shadow:0 4px 20px rgba(0,230,118,.45);
-    z-index:20;
-  }
-
-  /* ── CTA BTN ── */
+  /* CTA */
   .cta-btn {
     position:relative; z-index:1;
     display:flex; align-items:center; justify-content:center; gap:10px;
@@ -400,7 +331,7 @@
     position:relative; z-index:1;
   }
 
-  /* ── TICKER X ── */
+  /* TICKER */
   .ticker-x-wrap {
     position:relative; width:100vw;
     left:50%; transform:translateX(-50%);
@@ -430,24 +361,17 @@
   .ticker-band-2 .ticker-track{animation:tick-scroll-r 22s linear infinite;}
   @keyframes tick-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   @keyframes tick-scroll-r{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-  .ticker-item{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:0 20px; white-space:nowrap; flex-shrink:0;
-  }
-  .t-name{
-    font-family:'Montserrat',sans-serif;
-    font-size:1rem; font-weight:800;
-    color:#c8ffd6; letter-spacing:3px; text-transform:uppercase;
-  }
+  .ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 20px;white-space:nowrap;flex-shrink:0;}
+  .t-name{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:#c8ffd6;letter-spacing:3px;text-transform:uppercase;}
   .t-sep{color:rgba(0,230,118,.5);font-size:10px;padding-left:6px;}
 
-  /* ── SECTION BASE ── */
+  /* SECTIONS */
   section{padding:60px 20px;position:relative;}
   .section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
   .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,5.5vw,2.1rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
   .section-sub{font-size:.88rem;color:var(--muted);margin-bottom:32px;line-height:1.65;}
 
-  /* ── BENEFITS ── */
+  /* BENEFITS */
   .benefits-section{background:var(--bg);}
   .benefits-section .inner{max-width:480px;margin:0 auto;}
   .benefit-item{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.05);}
@@ -456,27 +380,12 @@
   .benefit-text h4{font-size:.92rem;font-weight:700;margin-bottom:3px;}
   .benefit-text p{font-size:.8rem;color:var(--muted);line-height:1.55;}
 
-  /* ── OFFER ── */
+  /* OFFER */
   .offer-section{background:var(--bg2);text-align:center;}
   .offer-section .inner{max-width:460px;margin:0 auto;}
-  .offer-card{
-    background:var(--card);
-    border:1px solid rgba(0,230,118,.25);
-    border-radius:22px; padding:28px 22px 24px;
-    position:relative; overflow:hidden;
-    box-shadow:0 0 60px rgba(0,230,118,.08);
-  }
-  .offer-card::before{
-    content:''; position:absolute;
-    top:0;left:0;right:0; height:3px;
-    background:linear-gradient(90deg,var(--green),var(--gold),var(--green));
-  }
-  .offer-ribbon{
-    position:absolute; top:16px; right:-26px;
-    background:var(--green); color:#000;
-    font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
-    padding:5px 34px; transform:rotate(45deg);
-  }
+  .offer-card{background:var(--card);border:1px solid rgba(0,230,118,.25);border-radius:22px;padding:28px 22px 24px;position:relative;overflow:hidden;box-shadow:0 0 60px rgba(0,230,118,.08);}
+  .offer-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--gold),var(--green));}
+  .offer-ribbon{position:absolute;top:16px;right:-26px;background:var(--green);color:#000;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 34px;transform:rotate(45deg);}
   .offer-title{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:5px;}
   .offer-sub{font-size:.8rem;color:var(--muted);margin-bottom:24px;}
   .price-old{font-size:.83rem;color:var(--muted);text-decoration:line-through;margin-bottom:3px;}
@@ -491,27 +400,12 @@
   .what-item{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.83rem;}
   .what-item:last-child{border-bottom:none;}
   .what-item .check{color:var(--green);font-size:13px;flex-shrink:0;}
-
-  .buy-btn{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    width:100%;
-    background:linear-gradient(135deg,var(--green),var(--greend));
-    color:#000;
-    font-family:'Montserrat',sans-serif;
-    font-size:1rem;font-weight:900;
-    letter-spacing:1.5px;text-transform:uppercase;
-    padding:19px;border-radius:12px;border:none;
-    cursor:pointer;text-decoration:none;
-    box-shadow:0 8px 30px rgba(0,230,118,.35);
-    animation:cta-pulse 2.4s ease-in-out infinite;
-    transition:transform .2s;
-  }
+  .buy-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:linear-gradient(135deg,var(--green),var(--greend));color:#000;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:19px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 8px 30px rgba(0,230,118,.35);animation:cta-pulse 2.4s ease-in-out infinite;transition:transform .2s;}
   .buy-btn:active{transform:scale(.97)}
-
   .secure-badges{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;flex-wrap:wrap;}
   .sec-badge{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--muted);}
 
-  /* ── SOCIAL PROOF ── */
+  /* SOCIAL PROOF */
   .social-proof{background:var(--bg2);padding:18px 20px;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);}
   .sp-inner{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
   .sp-item{display:flex;flex-direction:column;align-items:center;gap:2px;}
@@ -519,7 +413,7 @@
   .sp-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
   .sp-divider{width:1px;height:34px;background:rgba(255,255,255,.07);}
 
-  /* ── FAQ ── */
+  /* FAQ */
   .faq-section{background:var(--bg2);}
   .faq-section .inner{max-width:480px;margin:0 auto;}
   .faq-item{border-bottom:1px solid rgba(255,255,255,.06);}
@@ -531,187 +425,162 @@
   .faq-a p{font-size:.82rem;color:var(--muted);line-height:1.7;padding-bottom:18px;}
   .faq-a p strong{color:var(--text);}
 
-  /* ── CATEGORIAS ── */
-  .cats-section {
-    background: var(--bg);
-    padding: 48px 20px 52px;
-    position: relative;
-  }
-  .cats-section .inner { max-width: 480px; margin: 0 auto; }
+  /* CATEGORIAS */
+  .cats-section{background:var(--bg);padding:48px 20px 52px;position:relative;}
+  .cats-section .inner{max-width:480px;margin:0 auto;}
+  .cats-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+  .cats-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,5vw,1.9rem);font-weight:900;line-height:1.2;margin-bottom:28px;}
+  .cats-title span{color:var(--gold);}
+  .cat-grid{display:flex;flex-direction:column;gap:10px;}
+  .cat-item{display:flex;align-items:center;gap:14px;background:#111;border:1px solid rgba(255,255,255,.07);border-left:3px solid var(--green);border-radius:12px;padding:14px 16px;position:relative;overflow:hidden;opacity:0;transform:translateX(-24px);transition:border-color .3s,box-shadow .3s;}
+  .cat-item.visible{animation:cat-slide .5s cubic-bezier(.16,1,.3,1) forwards;}
+  @keyframes cat-slide{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+  .cat-item:nth-child(1){animation-delay:.05s}
+  .cat-item:nth-child(2){animation-delay:.10s;border-left-color:#ff2d55}
+  .cat-item:nth-child(3){animation-delay:.15s;border-left-color:#9c27b0}
+  .cat-item:nth-child(4){animation-delay:.20s;border-left-color:var(--gold)}
+  .cat-item:nth-child(5){animation-delay:.25s;border-left-color:#ff6d00}
+  .cat-item:nth-child(6){animation-delay:.30s;border-left-color:#0091ea}
+  .cat-item:nth-child(7){animation-delay:.35s;border-left-color:var(--green)}
+  .cat-item:nth-child(8){animation-delay:.40s;border-left-color:var(--gold)}
+  .cat-item:hover{border-color:rgba(255,255,255,.18);box-shadow:0 4px 24px rgba(0,0,0,.5);}
+  .cat-item::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.03) 0%,transparent 60%);pointer-events:none;}
+  .cat-emoji{font-size:1.6rem;flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border-radius:10px;}
+  .cat-info{flex:1;}
+  .cat-name{font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:800;color:var(--text);margin-bottom:2px;}
+  .cat-desc{font-size:.75rem;color:var(--muted);line-height:1.4;}
+  .cat-badge{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;white-space:nowrap;flex-shrink:0;background:rgba(0,230,118,.12);border:1px solid rgba(0,230,118,.25);color:var(--green);}
+  .cat-item:nth-child(2) .cat-badge{background:rgba(255,45,85,.1);border-color:rgba(255,45,85,.3);color:#ff2d55}
+  .cat-item:nth-child(3) .cat-badge{background:rgba(156,33,176,.1);border-color:rgba(156,33,176,.3);color:#ce93d8}
+  .cat-item:nth-child(4) .cat-badge{background:rgba(255,214,0,.1);border-color:rgba(255,214,0,.3);color:var(--gold)}
+  .cat-item:nth-child(5) .cat-badge{background:rgba(255,109,0,.1);border-color:rgba(255,109,0,.3);color:#ff9d40}
+  .cat-item:nth-child(6) .cat-badge{background:rgba(0,145,234,.1);border-color:rgba(0,145,234,.3);color:#40c4ff}
+  .cat-item:nth-child(8) .cat-badge{background:rgba(255,214,0,.1);border-color:rgba(255,214,0,.3);color:var(--gold)}
 
-  .cats-label {
-    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--green); margin-bottom: 8px;
-  }
-  .cats-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1.4rem, 5vw, 1.9rem);
-    font-weight: 900; line-height: 1.2; margin-bottom: 28px;
-  }
-  .cats-title span { color: var(--gold); }
-
-  .cat-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .cat-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: #111;
-    border: 1px solid rgba(255,255,255,.07);
-    border-left: 3px solid var(--green);
-    border-radius: 12px;
-    padding: 14px 16px;
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateX(-24px);
-    transition: border-color .3s, box-shadow .3s;
-  }
-
-  .cat-item.visible {
-    animation: cat-slide .5s cubic-bezier(.16,1,.3,1) forwards;
-  }
-
-  @keyframes cat-slide {
-    from { opacity: 0; transform: translateX(-24px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  .cat-item:nth-child(1) { animation-delay: .05s; }
-  .cat-item:nth-child(2) { animation-delay: .10s; border-left-color: #ff2d55; }
-  .cat-item:nth-child(3) { animation-delay: .15s; border-left-color: #9c27b0; }
-  .cat-item:nth-child(4) { animation-delay: .20s; border-left-color: var(--gold); }
-  .cat-item:nth-child(5) { animation-delay: .25s; border-left-color: #ff6d00; }
-  .cat-item:nth-child(6) { animation-delay: .30s; border-left-color: #0091ea; }
-  .cat-item:nth-child(7) { animation-delay: .35s; border-left-color: var(--green); }
-  .cat-item:nth-child(8) { animation-delay: .40s; border-left-color: var(--gold); }
-
-  .cat-item:hover {
-    border-color: rgba(255,255,255,.18);
-    box-shadow: 0 4px 24px rgba(0,0,0,.5);
-  }
-
-  .cat-item::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,.03) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .cat-emoji {
-    font-size: 1.6rem;
-    flex-shrink: 0;
-    width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,.04);
-    border-radius: 10px;
-  }
-
-  .cat-info { flex: 1; }
-  .cat-name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: .92rem; font-weight: 800;
-    color: var(--text); margin-bottom: 2px;
-  }
-  .cat-desc {
-    font-size: .75rem; color: var(--muted); line-height: 1.4;
-  }
-
-  .cat-badge {
-    font-size: .65rem; font-weight: 700;
-    letter-spacing: 1px; text-transform: uppercase;
-    padding: 3px 8px; border-radius: 100px;
-    white-space: nowrap; flex-shrink: 0;
-    background: rgba(0,230,118,.12);
-    border: 1px solid rgba(0,230,118,.25);
-    color: var(--green);
-  }
-  .cat-item:nth-child(2) .cat-badge { background:rgba(255,45,85,.1); border-color:rgba(255,45,85,.3); color:#ff2d55; }
-  .cat-item:nth-child(3) .cat-badge { background:rgba(156,33,176,.1); border-color:rgba(156,33,176,.3); color:#ce93d8; }
-  .cat-item:nth-child(4) .cat-badge { background:rgba(255,214,0,.1); border-color:rgba(255,214,0,.3); color:var(--gold); }
-  .cat-item:nth-child(5) .cat-badge { background:rgba(255,109,0,.1); border-color:rgba(255,109,0,.3); color:#ff9d40; }
-  .cat-item:nth-child(6) .cat-badge { background:rgba(0,145,234,.1); border-color:rgba(0,145,234,.3); color:#40c4ff; }
-  .cat-item:nth-child(8) .cat-badge { background:rgba(255,214,0,.1); border-color:rgba(255,214,0,.3); color:var(--gold); }
   footer{background:var(--bg);padding:28px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.04);}
   footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;margin:0 auto;}
   footer .footer-logo{font-family:'Montserrat',sans-serif;font-size:1rem;color:var(--green);margin-bottom:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
 
-  /* ── FLOATING BAR ── */
-  .float-bar{
-    position:fixed;bottom:0;left:0;right:0;
-    background:rgba(8,8,8,.96);backdrop-filter:blur(20px);
-    border-top:1px solid rgba(0,230,118,.2);
-    padding:11px 18px;
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-    z-index:100;transform:translateY(100%);
-    transition:transform .4s cubic-bezier(.16,1,.3,1);
-  }
+  /* FLOAT BAR */
+  .float-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,8,.96);backdrop-filter:blur(20px);border-top:1px solid rgba(0,230,118,.2);padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;z-index:100;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);}
   .float-bar.visible{transform:translateY(0);}
   .float-bar .fb-text strong{font-size:.83rem;display:block;}
   .float-bar .fb-text small{font-size:.7rem;color:var(--green);}
-  .float-bar .fb-btn{
-    background:var(--green);color:#000;
-    font-family:'Montserrat',sans-serif;
-    font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;
-    padding:11px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;flex-shrink:0;
-  }
+  .float-bar .fb-btn{background:var(--green);color:#000;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:11px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;flex-shrink:0;}
 
-  /* PATTERN BG */
   .pattern-bg::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(0,230,118,.015) 0,rgba(0,230,118,.015) 1px,transparent 0,transparent 50%);background-size:20px 20px;pointer-events:none;}
 
-  /* ── SEÇÃO RAIVA ── */
-  .raiva-section {
-    background: #f0f0f0;
-    padding: 48px 20px 52px;
+  /* SEÇÃO RAIVA */
+  .raiva-section{background:#f0f0f0;padding:48px 20px 52px;}
+  .raiva-section .inner{max-width:440px;margin:0 auto;}
+  .raiva-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,6vw,2rem);font-weight:900;color:#111;text-align:center;line-height:1.2;margin-bottom:28px;}
+  .raiva-block{background:#fff;border-radius:16px;padding:18px 18px 16px;margin-bottom:12px;box-shadow:0 2px 14px rgba(0,0,0,.08);}
+  .raiva-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;}
+  .raiva-row+.raiva-row{border-top:1px solid #f0f0f0;margin-top:4px;}
+  .raiva-icon{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px;}
+  .raiva-icon.bad{background:#fde8e8;color:#e53935;}
+  .raiva-icon.good{background:#e8f5e9;color:#2e7d32;}
+  .raiva-bad-text{font-size:.84rem;line-height:1.5;color:#888;font-style:italic;}
+  .raiva-good-text{font-size:.9rem;line-height:1.5;color:#111;font-weight:700;border-left:3px solid #2e7d32;padding-left:10px;}
+
+  /* ── CARROSSEL DE EXEMPLOS ── */
+  .exemplos-section {
+    background: var(--bg2);
+    padding: 52px 0 56px;
+    overflow: hidden;
+    position: relative;
   }
-  .raiva-section .inner { max-width: 440px; margin: 0 auto; }
-  .raiva-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1.5rem, 6vw, 2rem);
-    font-weight: 900;
-    color: #111;
+  .exemplos-section::before,
+  .exemplos-section::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    width: 60px; z-index: 10; pointer-events: none;
+  }
+  .exemplos-section::before { left: 0; background: linear-gradient(90deg, var(--bg2), transparent); }
+  .exemplos-section::after  { right: 0; background: linear-gradient(-90deg, var(--bg2), transparent); }
+
+  .exemplos-header {
     text-align: center;
-    line-height: 1.2;
+    padding: 0 20px;
     margin-bottom: 28px;
   }
-  .raiva-block {
-    background: #fff;
-    border-radius: 16px;
-    padding: 18px 18px 16px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 14px rgba(0,0,0,.08);
+  .exemplos-header .section-label { color: var(--green); }
+  .exemplos-header .section-title { font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem,5vw,1.9rem); font-weight: 900; }
+  .exemplos-header .section-title span { color: var(--gold); }
+  .exemplos-header p { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+
+  .carousel-outer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
   }
-  .raiva-row {
+
+  .carousel-track {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
+    gap: 12px;
+    width: max-content;
+    will-change: transform;
   }
-  .raiva-row + .raiva-row {
-    border-top: 1px solid #f0f0f0;
-    margin-top: 4px;
+
+  .carousel-track.paused {
+    animation-play-state: paused !important;
   }
-  .raiva-icon {
-    width: 24px; height: 24px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; flex-shrink: 0; margin-top: 1px;
+
+  /* animação CSS contínua — duplicamos as imagens para loop infinito */
+  .carousel-track {
+    animation: car-scroll 28s linear infinite;
   }
-  .raiva-icon.bad  { background: #fde8e8; color: #e53935; }
-  .raiva-icon.good { background: #e8f5e9; color: #2e7d32; }
-  .raiva-bad-text {
-    font-size: .84rem; line-height: 1.5;
-    color: #888; font-style: italic;
+
+  @keyframes car-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
-  .raiva-good-text {
-    font-size: .9rem; line-height: 1.5;
-    color: #111; font-weight: 700;
-    border-left: 3px solid #2e7d32;
-    padding-left: 10px;
+
+  .car-item {
+    flex-shrink: 0;
+    width: 140px;
+    aspect-ratio: 2/3;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,230,118,.2);
+    box-shadow: 0 8px 30px rgba(0,0,0,.6);
+    background: #111;
+    position: relative;
+    transition: transform .3s, border-color .3s;
   }
+
+  .carousel-outer:not(.paused) .car-item:hover {
+    transform: scale(1.04);
+    border-color: rgba(0,230,118,.5);
+  }
+
+  .car-item img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    loading: lazy;
+  }
+
+  /* overlay escuro no fundo do card */
+  .car-item::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.4) 100%);
+    pointer-events: none;
+  }
+
+  /* indicador de pausa */
+  .pause-hint {
+    text-align: center;
+    margin-top: 16px;
+    font-size: .72rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    transition: color .3s;
+  }
+  .pause-hint.is-paused { color: var(--green); }
+  .pause-hint span { display: inline-block; margin-right: 5px; }
 </style>
 </head>
 <body>
@@ -725,8 +594,6 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
-
-  <!-- FUNDO TEMÁTICO HQ -->
   <div class="hero-hq-bg">
     <div class="hq-burst"></div>
     <div class="hq-panel-border"></div>
@@ -740,8 +607,9 @@
     Tenha acesso a <span class="hl-gold">+70k HQs, Mangás, Gibis, Revistas Antigas, Livros Raros</span> e <span class="hl-gold">Conteúdo +18</span> — vitalício e ilimitado.
   </h1>
 
-  <!-- FAN DE CARTAS -->
+  <!-- FAN DE IMAGENS -->
   <div class="mockup-scene">
+    <div class="mockup-badge">EXCLUSIVO</div>
     <div class="fan-wrap" id="fanWrap">
       <div class="fan-card">
         <img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" alt="HQ 1" />
@@ -762,9 +630,7 @@
     <div class="fan-glow"></div>
   </div>
 
-  <a href="#oferta" class="cta-btn">
-    ⚡ QUERO ACESSO AGORA
-  </a>
+  <a href="#oferta" class="cta-btn">⚡ QUERO ACESSO AGORA</a>
   <p class="cta-sub">✅ Acesso imediato · Pagamento único · Leitura offline</p>
 
   <!-- TICKER -->
@@ -807,84 +673,199 @@
 <!-- SOCIAL PROOF -->
 <div class="social-proof">
   <div class="sp-inner">
-    <div class="sp-item">
-      <span class="sp-num">⭐ 4.9</span>
-      <span class="sp-label">Avaliação</span>
-    </div>
+    <div class="sp-item"><span class="sp-num">⭐ 4.9</span><span class="sp-label">Avaliação</span></div>
     <div class="sp-divider"></div>
-    <div class="sp-item">
-      <span class="sp-num">12k+</span>
-      <span class="sp-label">Leitores</span>
-    </div>
+    <div class="sp-item"><span class="sp-num">12k+</span><span class="sp-label">Leitores</span></div>
     <div class="sp-divider"></div>
-    <div class="sp-item">
-      <span class="sp-num">⚡ Imediato</span>
-      <span class="sp-label">Acesso</span>
-    </div>
+    <div class="sp-item"><span class="sp-num">⚡ Imediato</span><span class="sp-label">Acesso</span></div>
   </div>
 </div>
+
+<!-- CARROSSEL DE EXEMPLOS -->
+<section class="exemplos-section" id="exemplos">
+  <div class="exemplos-header">
+    <p class="section-label">👁️ prévia do acervo</p>
+    <h2 class="section-title">Veja alguns <span>exemplos</span></h2>
+    <p>Clique para pausar · clique novamente para continuar</p>
+  </div>
+
+  <div class="carousel-outer" id="carouselOuter">
+    <div class="carousel-track" id="carTrack">
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-39.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-38.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-37.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-36.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-35.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-34.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-33.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-32.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-31.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-30.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-29.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-28.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-27.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-26.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-25.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-62.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-61.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-60.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-59.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-58.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-57.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-56.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-54.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-53.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-51.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-50.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-48.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-21.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-19.png" loading="lazy" alt="HQ"/></div>
+      <!-- duplicata para loop contínuo -->
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-39.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-38.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-37.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-36.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-35.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-34.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-33.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-32.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-31.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-30.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-29.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-28.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-27.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-26.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-25.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-62.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-61.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-60.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-59.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-58.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-57.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-56.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-54.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-53.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-51.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-50.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-48.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-21.png" loading="lazy" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-19.png" loading="lazy" alt="HQ"/></div>
+    </div>
+  </div>
+  <p class="pause-hint" id="pauseHint"><span>▶</span> toque para pausar</p>
+</section>
 
 <!-- SEÇÃO RAIVA -->
 <section class="raiva-section">
   <div class="inner">
     <h2 class="raiva-title">Chega de passar raiva na internet!</h2>
-
     <div class="raiva-block">
-      <div class="raiva-row">
-        <div class="raiva-icon bad">✕</div>
-        <span class="raiva-bad-text">Perde horas procurando HQs boas pra baixar?</span>
-      </div>
-      <div class="raiva-row">
-        <div class="raiva-icon good">✓</div>
-        <span class="raiva-good-text">Aqui está tudo pronto, limpo e organizado.</span>
-      </div>
+      <div class="raiva-row"><div class="raiva-icon bad">✕</div><span class="raiva-bad-text">Perde horas procurando HQs boas pra baixar?</span></div>
+      <div class="raiva-row"><div class="raiva-icon good">✓</div><span class="raiva-good-text">Aqui está tudo pronto, limpo e organizado.</span></div>
     </div>
-
     <div class="raiva-block">
-      <div class="raiva-row">
-        <div class="raiva-icon bad">✕</div>
-        <span class="raiva-bad-text">Baixava HQs com vírus ou arquivos quebrados?</span>
-      </div>
-      <div class="raiva-row">
-        <div class="raiva-icon good">✓</div>
-        <span class="raiva-good-text">Agora tem acesso 100% seguro.</span>
-      </div>
+      <div class="raiva-row"><div class="raiva-icon bad">✕</div><span class="raiva-bad-text">Baixava HQs com vírus ou arquivos quebrados?</span></div>
+      <div class="raiva-row"><div class="raiva-icon good">✓</div><span class="raiva-good-text">Agora tem acesso 100% seguro.</span></div>
     </div>
-
     <div class="raiva-block">
-      <div class="raiva-row">
-        <div class="raiva-icon bad">✕</div>
-        <span class="raiva-bad-text">Não consegue completar coleções clássicas ou raras?</span>
-      </div>
-      <div class="raiva-row">
-        <div class="raiva-icon good">✓</div>
-        <span class="raiva-good-text">Recebe todas as HQs completas e separadas por série.</span>
-      </div>
+      <div class="raiva-row"><div class="raiva-icon bad">✕</div><span class="raiva-bad-text">Não consegue completar coleções clássicas ou raras?</span></div>
+      <div class="raiva-row"><div class="raiva-icon good">✓</div><span class="raiva-good-text">Recebe todas as HQs completas e separadas por série.</span></div>
     </div>
-
     <div class="raiva-block">
-      <div class="raiva-row">
-        <div class="raiva-icon bad">✕</div>
-        <span class="raiva-bad-text">Não tem dinheiro pra comprar HQ física todo mês?</span>
-      </div>
-      <div class="raiva-row">
-        <div class="raiva-icon good">✓</div>
-        <span class="raiva-good-text">Acesso vitalício a +70 mil HQs por um precinho simbólico.</span>
-      </div>
+      <div class="raiva-row"><div class="raiva-icon bad">✕</div><span class="raiva-bad-text">Não tem dinheiro pra comprar HQ física todo mês?</span></div>
+      <div class="raiva-row"><div class="raiva-icon good">✓</div><span class="raiva-good-text">Acesso vitalício a +70 mil HQs por um precinho simbólico.</span></div>
     </div>
   </div>
 </section>
-  // ── Data na barra topo ──
-  const d = new Date();
-  const opts = { day:'2-digit', month:'2-digit', year:'numeric' };
-  document.getElementById('topDate').textContent = d.toLocaleDateString('pt-BR', opts);
 
-  // ── Fan ──
-  (function(){
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Pack HQs</div>
+  <p>© 2025 · Todos os direitos reservados · Política de privacidade</p>
+</footer>
+
+
+
+<script>
+  const d = new Date();
+  document.getElementById('topDate').textContent = d.toLocaleDateString('pt-BR', {day:'2-digit',month:'2-digit',year:'numeric'});
+
+  (function() {
     const cards = document.querySelectorAll('.fan-card');
+    setTimeout(() => { cards.forEach(c => c.classList.add('animate')); }, 100);
+    const images = [
+      'https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png',
+      'https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png',
+      'https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png',
+      'https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png',
+      'https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-11.png',
+      'https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-16.png'
+    ];
+    const cardImgIndex = [0, 0, 2, 3, 4];
+    function swapCard(cardIndex) {
+      const card = cards[cardIndex]; if (!card) return;
+      const img = card.querySelector('img');
+      cardImgIndex[cardIndex] = (cardImgIndex[cardIndex] + 1) % images.length;
+      const nextSrc = images[cardImgIndex[cardIndex]];
+      const preload = new Image();
+      preload.src = nextSrc;
+      preload.onload = () => {
+        img.style.transition = 'opacity .45s ease'; img.style.opacity = '0';
+        setTimeout(() => { img.src = nextSrc; img.style.opacity = '1'; }, 460);
+      };
+    }
     setTimeout(() => {
-      cards.forEach(c => c.classList.add('animate'));
-    }, 100);
+      let queue = [];
+      function nextSwap() {
+        if (queue.length === 0) queue = [0,1,2,3,4].sort(() => Math.random()-.5);
+        const idx = queue.pop(); swapCard(idx);
+        setTimeout(nextSwap, 1800 + Math.random() * 1000);
+      }
+      nextSwap();
+    }, 1400);
+  })();
+
+
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  (function() {
+    const outer = document.getElementById('carouselOuter');
+    const track = document.getElementById('carTrack');
+    const hint  = document.getElementById('pauseHint');
+    if (!outer || !track) return;
+    let paused = false;
+    outer.addEventListener('click', () => {
+      paused = !paused;
+      if (paused) {
+        track.style.animationPlayState = 'paused';
+        hint.innerHTML = '<span>⏸</span> pausado · toque para continuar';
+        hint.classList.add('is-paused');
+      } else {
+        track.style.animationPlayState = 'running';
+        hint.innerHTML = '<span>▶</span> toque para pausar';
+        hint.classList.remove('is-paused');
+      }
+    });
   })();
 </script>
 </body>
