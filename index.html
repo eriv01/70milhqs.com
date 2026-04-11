@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#080808">
 <title>Pack HQs — 70.000 Raridades</title>
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code — Pixel 1 -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,9 +18,14 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '903461795842266');
 fbq('track', 'PageView');
+fbq('init', '2012924072992923');
+fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=903461795842266&ev=PageView&noscript=1"
+/></noscript>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2012924072992923&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
@@ -33,8 +38,8 @@ src="https://www.facebook.com/tr?id=903461795842266&ev=PageView&noscript=1"
 <!-- Fontes só com pesos usados -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Pré-carrega as 5 imagens do fan (above-the-fold) -->
-<link rel="preload" as="image" href="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png">
+<!-- Pré-carrega as 5 imagens do fan (above-the-fold) com dimensões explícitas -->
+<link rel="preload" as="image" href="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" imagesizes="clamp(148px,42vw,186px)" imagesrcset="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png">
 <link rel="preload" as="image" href="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png">
 <link rel="preload" as="image" href="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png">
 <link rel="preload" as="image" href="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png">
@@ -450,12 +455,12 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;marg
   <div class="mockup-scene" aria-hidden="true">
     <div class="mockup-badge">EXCLUSIVO</div>
     <div class="fan-wrap" id="fanWrap">
-      <!-- fetchpriority nas 5 imagens do fan — carregam primeiro -->
-      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" alt="HQ 1" fetchpriority="high" decoding="async"/></div>
-      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" alt="HQ 2" fetchpriority="high" decoding="async"/></div>
-      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" alt="HQ 3" fetchpriority="high" decoding="async"/></div>
-      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" alt="HQ 4" fetchpriority="high" decoding="async"/></div>
-      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" alt="HQ 5" fetchpriority="high" decoding="async"/></div>
+      <!-- fetchpriority nas 5 imagens do fan — carregam primeiro; width/height explícitos evitam CLS -->
+      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" alt="HQ 1" width="186" height="268" fetchpriority="high" decoding="sync"/></div>
+      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" alt="HQ 2" width="186" height="268" fetchpriority="high" decoding="sync"/></div>
+      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" alt="HQ 3" width="200" height="284" fetchpriority="high" decoding="sync"/></div>
+      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" alt="HQ 4" width="186" height="268" fetchpriority="high" decoding="sync"/></div>
+      <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" alt="HQ 5" width="186" height="268" fetchpriority="high" decoding="sync"/></div>
     </div>
     <div class="fan-glow"></div>
   </div>
@@ -519,80 +524,80 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;marg
   </div>
   <div class="carousel-outer" id="carouselOuter" role="region" aria-label="Carrossel de exemplos">
     <div class="carousel-track" id="carTrack">
-      <!-- imagens originais — lazy load -->
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-39.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-38.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-37.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-36.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-35.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-34.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-33.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-32.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-31.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-30.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-29.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-28.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-27.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-26.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-25.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-62.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-61.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-60.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-59.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-58.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-57.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-56.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-54.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-53.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-51.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-50.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-48.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-21.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-19.png" loading="lazy" decoding="async" alt="HQ"/></div>
+      <!-- imagens do carrossel — lazy + dimensões explícitas para evitar CLS + decoding async -->
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-39.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-38.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-37.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-36.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-35.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-34.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-33.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-32.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-31.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-30.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-29.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-28.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-27.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-26.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-25.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-62.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-61.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-60.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-59.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-58.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-57.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-56.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-54.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-53.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-51.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-50.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-48.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-21.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-19.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
       <!-- duplicata para loop infinito sem jump -->
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-39.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-38.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-37.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-36.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-35.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-34.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-33.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-32.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-31.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-30.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-29.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-28.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-27.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-26.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-25.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-62.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-61.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-60.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-59.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-58.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-57.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-56.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-54.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-53.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-51.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-50.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-48.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-21.png" loading="lazy" decoding="async" alt="HQ"/></div>
-      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-19.png" loading="lazy" decoding="async" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-39.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-38.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-37.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-36.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-35.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-34.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-33.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-32.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-31.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-30.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-29.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-28.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-27.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-26.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-25.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-24.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-62.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-61.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-60.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-59.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-58.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-57.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-56.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-54.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-53.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-51.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-50.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-49.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-48.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-21.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
+      <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-19.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
     </div>
   </div>
   <p class="pause-hint" id="pauseHint"><span>▶</span> toque para pausar</p>
@@ -655,7 +660,7 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;marg
         <div class="what-item"><span class="check">♾️</span> Acesso vitalício — sem mensalidade</div>
         <div class="what-item"><span class="check">⚡</span> Entrega imediata após pagamento</div>
       </div>
-      <a href="https://pay.wiapy.com/XKIqJBqs4r" class="buy-btn" touch-action="manipulation">⚡ QUERO ACESSO AGORA — R$17,00</a>
+      <a href="https://pay.wiapy.com/SGh2RRfezV" class="buy-btn" touch-action="manipulation">⚡ QUERO ACESSO AGORA — R$17,00</a>
       <div class="secure-badges">
         <div class="sec-badge">🔒 Pagamento seguro</div>
         <div class="sec-badge">⚡ Acesso imediato</div>
@@ -825,6 +830,16 @@ function initCarousel() {
       track.style.animationPlayState = 'running';
     }
   });
+
+  /* IntersectionObserver — pausa carrossel quando fora da viewport */
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!paused) track.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+      });
+    }, {threshold: 0.1});
+    io.observe(outer);
+  }
 }
 
 /* ── FAQ accordion ── */
