@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#080808">
 <title>Pack HQs — 70.000 Raridades</title>
 
-<!-- Meta Pixel Code — Pixel 1 -->
+<!-- Meta Pixel Code — CORRIGIDO: ambos os pixels inicializados ANTES do track -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,7 +17,6 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '903461795842266');
-fbq('track', 'PageView');
 fbq('init', '2012924072992923');
 fbq('track', 'PageView');
 </script>
@@ -455,7 +454,6 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;marg
   <div class="mockup-scene" aria-hidden="true">
     <div class="mockup-badge">EXCLUSIVO</div>
     <div class="fan-wrap" id="fanWrap">
-      <!-- fetchpriority nas 5 imagens do fan — carregam primeiro; width/height explícitos evitam CLS -->
       <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" alt="HQ 1" width="186" height="268" fetchpriority="high" decoding="sync"/></div>
       <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-18.png" alt="HQ 2" width="186" height="268" fetchpriority="high" decoding="sync"/></div>
       <div class="fan-card"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-23.png" alt="HQ 3" width="200" height="284" fetchpriority="high" decoding="sync"/></div>
@@ -524,7 +522,6 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;marg
   </div>
   <div class="carousel-outer" id="carouselOuter" role="region" aria-label="Carrossel de exemplos">
     <div class="carousel-track" id="carTrack">
-      <!-- imagens do carrossel — lazy + dimensões explícitas para evitar CLS + decoding async -->
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
@@ -561,7 +558,7 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;marg
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-21.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-19.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
-      <!-- duplicata para loop infinito sem jump -->
+      <!-- duplicata para loop infinito -->
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-44.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-43.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
       <div class="car-item"><img src="https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-41.png" loading="lazy" decoding="async" width="140" height="210" alt="HQ"/></div>
@@ -749,16 +746,13 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:360px;marg
 </footer>
 
 <script>
-/* ── Tudo em defer natural — script no fim do body ── */
-
 /* Data barra topo */
 document.getElementById('topDate').textContent =
   new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});
 
-/* ── FAN — requestIdleCallback para não bloquear LCP ── */
+/* ── FAN ── */
 function initFan() {
   const cards = document.querySelectorAll('.fan-card');
-  /* Anime no próximo frame após paint */
   requestAnimationFrame(() => {
     setTimeout(() => cards.forEach(c => c.classList.add('animate')), 60);
   });
@@ -772,7 +766,6 @@ function initFan() {
     'https://metodotripe.shop/wp-content/uploads/2026/04/Screenshot-22.png'
   ];
   const idx = [0, 0, 2, 3, 4];
-  /* Cache de imagens pré-carregadas */
   const cache = {};
   images.forEach(src => { const i = new Image(); i.src = src; cache[src] = i; });
 
@@ -791,7 +784,6 @@ function initFan() {
     preload.complete ? doSwap() : (preload.onload = doSwap);
   }
 
-  /* Só inicia troca após animação de entrada e idle */
   setTimeout(() => {
     let q = [];
     function next() {
@@ -799,7 +791,6 @@ function initFan() {
       swapCard(q.pop());
       setTimeout(next, 1800 + Math.random()*1000);
     }
-    /* requestIdleCallback — troca só quando CPU estiver livre */
     ('requestIdleCallback' in window)
       ? requestIdleCallback(next, {timeout:3000})
       : setTimeout(next, 200);
@@ -822,7 +813,6 @@ function initCarousel() {
     hint.classList.toggle('is-paused', paused);
   }, {passive:true});
 
-  /* Pausa quando página perde foco — economiza bateria */
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       track.style.animationPlayState = 'paused';
@@ -831,7 +821,6 @@ function initCarousel() {
     }
   });
 
-  /* IntersectionObserver — pausa carrossel quando fora da viewport */
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -864,11 +853,9 @@ function initAnchors() {
   });
 }
 
-/* ── Inicializa tudo via requestIdleCallback para não bloquear ── */
 if ('requestIdleCallback' in window) {
   requestIdleCallback(() => { initFan(); initCarousel(); initFaq(); initAnchors(); }, {timeout:2000});
 } else {
-  /* fallback para browsers sem rIC */
   window.addEventListener('load', () => {
     setTimeout(() => { initFan(); initCarousel(); initFaq(); initAnchors(); }, 100);
   });
