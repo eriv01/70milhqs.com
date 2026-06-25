@@ -10,15 +10,15 @@
 // ====================================================================
 
 // ---- EDITAR: mesma tabela de precos do index.html ----
-const PRODUTO = { nome: "SEU PRODUTO", preco: 17.00 };
+const PRODUTO = { nome: "pack hqs", preco: 17.00 };
 const DESCONTO_PCT = 20; // aplicado ao preco do produto (cupom do modal de saida)
 
 // 2 bumps. O UNITARIO cai conforme a QTD selecionada.
 // idx 0 = 1 bump (7,90), idx 1 = 2 bumps (6,90 cada).
 // Precisa bater com CFG.BUMP_TIERS do index.html.
 const BUMP_NOMES = {
-  bump1: "Bump 01",
-  bump2: "Bump 02"
+  bump1: "hestais18",
+  bump2: "cenas proibidas"
 };
 const BUMP_TIERS = [7.90, 6.90];
 // ------------------------------------------------------
