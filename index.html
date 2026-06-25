@@ -212,6 +212,99 @@ html.age-locked,html.age-locked body{overflow:hidden}
 .ag-yes:active{transform:scale(.97)}
 .ag-check{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;background:rgba(0,0,0,.22);font-size:14px;flex-shrink:0}
 .ag-no{display:inline-block;margin-top:18px;font-size:.82rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:8px;}
+
+/* === CHECKOUT (injetado) === */
+/* ====== CHECKOUT (PIX) ====== */
+.hidden{display:none !important}
+#page-checkout{display:none;min-height:100vh;}
+.co-hero{position:relative;overflow:hidden;}
+.co-banner{width:100%;aspect-ratio:16/10;max-height:300px;object-fit:cover;object-position:center top;display:block;background:var(--bg2);}
+.co-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(8,8,8,.96) 100%);pointer-events:none;}
+.co-hero-content{position:absolute;bottom:0;left:0;right:0;padding:14px 20px 18px;text-align:center;}
+.co-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,230,118,.12);border:1px solid rgba(0,230,118,.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:800;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.co-hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.1rem,4.5vw,1.5rem);font-weight:900;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.8);}
+.co-hero-title span{color:var(--green);}
+.co-main{max-width:480px;margin:0 auto;padding:20px 16px 60px;}
+.co-product{background:var(--card);border:1px solid rgba(0,230,118,.2);border-radius:16px;padding:16px;display:flex;gap:14px;align-items:center;margin-bottom:18px;position:relative;overflow:hidden;}
+.co-product::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),rgba(0,230,118,.3),var(--green));}
+.co-cover{width:72px;height:100px;border-radius:8px;object-fit:cover;flex-shrink:0;border:2px solid rgba(0,230,118,.3);box-shadow:0 8px 24px rgba(0,0,0,.5);background:var(--bg2);}
+.co-prod-name{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:900;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.co-prod-desc{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:8px;}
+.co-prod-price{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:var(--text);line-height:1;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+.desc-tag{font-size:10px;font-weight:700;color:var(--green);background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.3);padding:2px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px;}
+.co-form-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--text);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;text-align:center;}
+.co-form-title span{color:var(--green);}
+.co-group{margin-bottom:11px;}
+.co-group label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.co-group input{width:100%;background:#111;border:2px solid rgba(255,255,255,.08);border-radius:10px;padding:13px 14px;font-size:15px;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;}
+.co-group input::placeholder{color:rgba(255,255,255,.2);}
+.co-group input:focus{border-color:rgba(0,230,118,.5);box-shadow:0 0 0 3px rgba(0,230,118,.1);}
+.bumps-title{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;color:var(--text);text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:18px 0 6px;}
+.bump-hint{font-size:11px;color:var(--green);text-align:center;margin-bottom:12px;line-height:1.4;}
+.bump{display:flex;gap:10px;align-items:center;background:var(--bg2);border:2px dashed rgba(0,230,118,.2);border-radius:14px;padding:12px;margin-bottom:10px;cursor:pointer;position:relative;transition:border-color .2s,background .2s;user-select:none;}
+.bump.on{border-style:solid;border-color:var(--green);background:rgba(0,230,118,.05);box-shadow:0 4px 20px rgba(0,230,118,.1);}
+.bump.promo{border-color:rgba(255,214,0,.45);}
+.bump input{-webkit-appearance:none;appearance:none;width:24px;height:24px;border:2px solid rgba(255,255,255,.2);border-radius:7px;flex-shrink:0;cursor:pointer;position:relative;margin:0;background:transparent;transition:all .2s;}
+.bump.on input,.bump input:checked{background:var(--green);border-color:var(--green);}
+.bump input:checked::after{content:'';position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #000;border-width:0 2px 2px 0;transform:rotate(45deg);}
+.bump img{width:60px;height:84px;object-fit:cover;object-position:center top;border-radius:8px;flex-shrink:0;border:2px solid rgba(0,230,118,.2);background:var(--bg3);}
+.bump.on img{border-color:rgba(0,230,118,.5);}
+.bump > div{flex:1;}
+.b-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;color:var(--green);text-transform:uppercase;line-height:1.2;margin-bottom:3px;}
+.b-desc{font-size:11px;color:var(--muted);line-height:1.4;margin-bottom:5px;}
+.b-price{font-size:14px;font-weight:900;color:var(--text);}
+.b-price s{color:var(--muted);font-weight:400;font-size:10px;margin-right:4px;}
+.b-badge{position:absolute;top:-9px;right:14px;background:var(--gold);color:#000;font-size:10px;font-weight:800;padding:2px 9px;border-radius:100px;letter-spacing:.5px;}
+.valor-row{display:flex;justify-content:space-between;align-items:center;background:#111;border:1px solid rgba(0,230,118,.15);border-radius:10px;padding:12px 16px;margin:14px 0;}
+.co-total-label{font-size:13px;font-weight:700;color:var(--muted);}
+.co-total-val{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:var(--green);}
+.co-gatilhos{display:flex;flex-direction:column;gap:6px;background:var(--bg2);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:12px 14px;margin-bottom:14px;}
+.co-gatilho{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:#888;line-height:1.4;}
+.co-gatilho span{flex:1;}
+.co-btn-gerar{width:100%;background:linear-gradient(135deg,var(--green),var(--greend));color:#000;border:none;border-radius:12px;padding:18px;font-family:'Montserrat',sans-serif;font-size:clamp(13px,4vw,16px);font-weight:900;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;box-shadow:0 8px 32px rgba(0,230,118,.35);animation:cta-pulse 2.2s infinite;position:relative;overflow:hidden;touch-action:manipulation;line-height:1.25;}
+.co-btn-gerar:disabled{opacity:.7;cursor:not-allowed;animation:none;}
+.co-btn-gerar:active{transform:scale(.98);}
+.co-spinner{display:inline-block;width:15px;height:15px;border:2px solid rgba(0,0,0,.3);border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:7px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.co-pix-steps{background:var(--bg2);border:1px solid rgba(0,230,118,.1);border-radius:12px;padding:14px;margin-bottom:14px;}
+.co-pix-steps h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--green);text-transform:uppercase;margin-bottom:10px;}
+.co-pix-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;font-size:12px;color:#888;line-height:1.4;}
+.co-step-num{background:var(--green);color:#000;font-size:10px;font-weight:900;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.co-qr-box{text-align:center;margin-bottom:14px;}
+.co-qr-box img{width:min(200px,65vw);height:auto;border:3px solid var(--green);border-radius:12px;padding:6px;background:#fff;display:block;margin:0 auto;}
+.co-qr-label{font-size:11px;font-weight:700;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.5px;}
+.co-code-box{background:var(--bg2);border:2px dashed rgba(0,230,118,.25);border-radius:10px;padding:12px;margin-bottom:12px;}
+.co-code-text{font-size:10px;color:#888;word-break:break-all;line-height:1.6;font-family:monospace;}
+.co-btn-copiar{width:100%;background:transparent;color:var(--green);border:2px solid var(--green);border-radius:10px;padding:14px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:900;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;}
+.co-btn-copiar:active{background:var(--green);color:#000;}
+.co-pix-urgency{text-align:center;font-size:12px;color:var(--muted);margin-top:12px;}
+.co-pix-urgency strong{color:var(--green);}
+.co-aguardando{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:700;color:var(--muted);margin-top:14px;}
+.co-pulse-dot{width:10px;height:10px;background:var(--green);border-radius:50%;flex-shrink:0;animation:pdot 1.2s infinite;}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+.co-aprovado{text-align:center;padding:18px 0 8px;}
+.co-check-icon{font-size:60px;margin-bottom:10px;}
+.co-aprovado h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:var(--green);text-transform:uppercase;margin-bottom:8px;}
+.co-aprovado p{font-size:13px;color:#888;line-height:1.5;}
+.co-entregavel{margin-top:18px;background:var(--bg2);border:2px solid rgba(0,230,118,.3);border-radius:14px;padding:18px;text-align:center;}
+.co-entregavel .e-icon{font-size:28px;margin-bottom:8px;}
+.co-entregavel .e-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.co-entregavel .e-sub{font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.5;}
+.co-entregavel a{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--green),var(--greend));color:#000;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;padding:16px;border-radius:10px;text-decoration:none;box-shadow:0 8px 24px rgba(0,230,118,.3);margin-bottom:8px;}
+#accExtra a{background:transparent;color:var(--green);border:2px solid var(--green);box-shadow:none;font-size:13px;}
+.co-entregavel .e-note{font-size:10px;color:#444;margin-top:10px;}
+.co-legal{text-align:center;padding:20px 16px 32px;border-top:1px solid rgba(255,255,255,.04);margin-top:24px;}
+.co-legal p{font-size:10px;color:var(--muted);line-height:1.8;max-width:420px;margin:0 auto;}
+#modalSaida{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9998;display:flex;align-items:center;justify-content:center;padding:16px;}
+.co-modal-box{background:#111;border:1px solid rgba(0,230,118,.2);border-radius:18px;padding:28px 22px;max-width:380px;width:100%;text-align:center;animation:modal-in .3s ease;}
+@keyframes modal-in{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.co-modal-icon{font-size:48px;margin-bottom:10px;}
+.co-modal-box h3{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:var(--green);text-transform:uppercase;margin-bottom:8px;}
+.co-modal-box p{font-size:13px;color:#888;line-height:1.55;margin-bottom:18px;}
+.co-modal-box p strong{color:var(--green);}
+.co-modal-btns{display:flex;flex-direction:column;gap:10px;}
+.co-btn-stay{background:linear-gradient(135deg,var(--green),var(--greend));color:#000;border:none;border-radius:10px;padding:15px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:900;cursor:pointer;text-transform:uppercase;}
+.co-btn-leave{background:none;color:var(--muted);border:none;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -236,6 +329,7 @@ html.age-locked,html.age-locked body{overflow:hidden}
 
 <div class="grain" aria-hidden="true"></div>
 
+<div id="page-vendas">
 <!-- EDITAR: barra de topo -->
 <div class="top-bar">Oferta especial - so hoje nesta pagina: <span id="topDate"></span></div>
 
@@ -381,7 +475,7 @@ html.age-locked,html.age-locked body{overflow:hidden}
         <div class="what-item"><span class="check">&#9889;</span> Entrega imediata apos o pagamento</div>
       </div>
       <!-- EDITAR: link do seu checkout (Hotmart/Kiwify ou seu funil PIX) -->
-      <a href="#LINK_CHECKOUT" class="buy-btn">QUERO ACESSO AGORA - R$ [VALOR]</a>
+      <button type="button" class="buy-btn" onclick="irParaCheckout()">QUERO ACESSO AGORA - R$ 17,00</button>
       <div class="secure-badges">
         <div class="sec-badge">Pagamento seguro</div>
         <div class="sec-badge">Acesso imediato</div>
@@ -464,6 +558,121 @@ html.age-locked,html.age-locked body{overflow:hidden}
     &copy; <span id="footYear"></span> [Sua marca] - Todos os direitos reservados - Politica de privacidade
   </p>
 </footer>
+</div><!-- /page-vendas -->
+
+<!-- ============================================================
+     CHECKOUT (PIX) - aparece ao clicar nos CTAs (irParaCheckout)
+============================================================ -->
+<div id="page-checkout">
+
+  <div class="co-hero">
+    <!-- EDITAR: URL do banner do checkout -->
+    <img class="co-banner" src="#URL_BANNER" alt="" onerror="this.style.display='none'">
+    <div class="co-hero-overlay"></div>
+    <div class="co-hero-content">
+      <div class="co-badge">Ultima etapa - acesso garantido</div>
+      <h1 class="co-hero-title">Finalize e receba <span>na hora</span></h1>
+    </div>
+  </div>
+
+  <div class="co-main">
+
+    <!-- ===== TELA DE VENDA (form + bumps) ===== -->
+    <div id="sec-venda">
+
+      <!-- resumo do produto (capa preenchida pelo CFG.PRODUTO.capa) -->
+      <div class="co-product">
+        <img class="co-cover" id="prodImg" src="" alt="" onerror="this.style.opacity=.3">
+        <div>
+          <div class="co-prod-name" id="prodNome">SEU PRODUTO</div>
+          <div class="co-prod-desc">[EDITAR: frase curta que resume seu produto]</div>
+          <div class="co-prod-price"><span id="prodPreco">R$ 17,00</span> <span class="desc-tag hidden" id="descTag">20% OFF aplicado</span></div>
+        </div>
+      </div>
+
+      <!-- informacoes -->
+      <div class="co-form-title">Preencha para <span>liberar seu acesso</span></div>
+      <div class="co-group"><label>Nome completo</label><input type="text" id="fNome" placeholder="Seu nome" autocomplete="name"></div>
+      <div class="co-group"><label>E-mail</label><input type="email" id="fEmail" placeholder="seuemail@gmail.com" autocomplete="email"></div>
+      <div class="co-group"><label>WhatsApp</label><input type="tel" id="fCel" placeholder="(11) 99999-9999" autocomplete="tel"></div>
+
+      <!-- bumps (preenchidos pelo CFG.BUMPS) -->
+      <div class="bumps-title" id="bumpsTitulo">Adicione mais itens com desconto</div>
+      <p class="bump-hint"></p>
+      <div id="bumpsBox"></div>
+
+      <!-- total -->
+      <div class="valor-row">
+        <span class="co-total-label">Total a pagar:</span>
+        <span class="co-total-val" id="totalVal">R$ 17,00</span>
+      </div>
+
+      <!-- selos -->
+      <div class="co-gatilhos">
+        <div class="co-gatilho">&#128274; <span>Compra 100% segura e criptografada</span></div>
+        <div class="co-gatilho">&#9889; <span>Acesso liberado em segundos apos o pagamento</span></div>
+        <div class="co-gatilho">&#9851; <span>Vitalicio - pague uma vez, acesse para sempre</span></div>
+      </div>
+
+      <button type="button" class="co-btn-gerar" id="btnGerar">GERAR PIX E GARANTIR ACESSO - R$ 17,00</button>
+    </div>
+
+    <!-- ===== TELA DO PIX (QR + copia e cola) ===== -->
+    <div id="sec-pix" class="hidden">
+      <div class="co-pix-steps">
+        <h4>Como pagar:</h4>
+        <div class="co-pix-step"><span class="co-step-num">1</span><span>Abra o app do seu banco</span></div>
+        <div class="co-pix-step"><span class="co-step-num">2</span><span>Escolha PIX -> Copia e Cola (ou escaneie o QR)</span></div>
+        <div class="co-pix-step"><span class="co-step-num">3</span><span>Cole o codigo ou aponte a camera para o QR</span></div>
+        <div class="co-pix-step"><span class="co-step-num">4</span><span>Confirme - seu acesso libera automaticamente</span></div>
+      </div>
+      <div class="co-qr-box">
+        <img id="qrImg" src="" alt="QR Code PIX">
+        <p class="co-qr-label">Escaneie o QR Code</p>
+      </div>
+      <div class="co-code-box"><div class="co-code-text" id="copiaTxt"></div></div>
+      <button type="button" class="co-btn-copiar" id="btnCopiar">COPIAR CODIGO PIX</button>
+      <div class="co-pix-urgency" id="pixUrgency">Este PIX expira em <strong id="pixTimer">15:00</strong></div>
+      <div class="co-aguardando"><span class="co-pulse-dot"></span><span id="statusTxt">Aguardando pagamento...</span></div>
+    </div>
+
+    <!-- ===== TELA DE APROVADO (entregavel) ===== -->
+    <div id="sec-obrigado" class="hidden">
+      <div class="co-aprovado">
+        <div class="co-check-icon">&#9989;</div>
+        <h3>Pagamento Aprovado!</h3>
+        <p>Seu acesso foi liberado. Confira seu e-mail e WhatsApp.</p>
+      </div>
+      <div class="co-entregavel">
+        <div class="e-icon">&#127873;</div>
+        <div class="e-title">Seu acesso esta pronto!</div>
+        <div class="e-sub">Clique abaixo para acessar seu conteudo agora</div>
+        <a id="accPrincipal" href="#" target="_blank" rel="noopener">ACESSAR MEU CONTEUDO AGORA</a>
+        <div id="accExtra"></div>
+        <div class="e-note">Guarde este link - ele e seu</div>
+      </div>
+    </div>
+
+    <div class="co-legal">
+      <p>Este site nao e afiliado a Meta Platforms, Inc. - Conteudo destinado a maiores de 18 anos.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- modal de saida (cupom 20%) -->
+<div id="modalSaida" class="hidden">
+  <div class="co-modal-box">
+    <div class="co-modal-icon">&#9888;</div>
+    <h3>Espere! Tem um desconto pra voce</h3>
+    <p>Aplique <strong>20% OFF</strong> agora e finalize seu acesso com preco menor.</p>
+    <div class="co-modal-btns">
+      <button type="button" class="co-btn-stay" id="btnAplicarDesc">APLICAR 20% DE DESCONTO</button>
+      <button type="button" class="co-btn-leave" id="btnPularDesc">Nao quero o desconto</button>
+    </div>
+  </div>
+</div>
+
 
 <script>
 document.getElementById('topDate').textContent =
@@ -524,6 +733,272 @@ function initAnchors(){
     });
   });
 }
+
+/* === CHECKOUT (injetado) === */
+
+/* ===================================================================
+   CHECKOUT - engenharia PIX (Mercado Pago) + Pixel/CAPI
+   Os precos abaixo precisam ser IGUAIS aos de /api/criar-pix.js
+   =================================================================== */
+var CFG = {
+  PIXEL_ID: "PIXEL_ID",                 /* EDITAR: mesmo do bloco do Pixel */
+  MOEDA: "BRL",
+  ITEM_LABEL: "itens",                  /* EDITAR: palavra usada na copy (ex: itens, modulos, ebooks) */
+
+  PRODUTO: {
+    nome:  "SEU PRODUTO",               /* EDITAR */
+    preco: 17.00,                       /* EDITAR (precisa bater com criar-pix.js) */
+    capa:  "https://doram.shop/wp-content/uploads/2026/06/stich_06.webp"  /* EDITAR */
+  },
+
+  DESCONTO_PCT: 20,                     /* cupom do modal de saida (incide so no preco do produto) */
+
+  /* Links liberados na tela de aprovado - EDITAR cada um */
+  ACESSOS: {
+    principal: "#LINK_ACESSO_PRODUTO",  /* EDITAR */
+    bump1: "#LINK_ACESSO_BUMP1",        /* EDITAR */
+    bump2: "#LINK_ACESSO_BUMP2"         /* EDITAR */
+  },
+
+  BUMP_BASE: 7.90,                      /* preco de cada bump quando 1 marcado */
+  /* unitario conforme a QTD marcada. idx0 = 1 bump, idx1 = 2 bumps.
+     ATENCAO: precisa bater com BUMP_TIERS de /api/criar-pix.js */
+  BUMP_TIERS: [7.90, 6.90],
+
+  /* 2 bumps - EDITAR nome, desc, img (o preco vem dos tiers acima) */
+  BUMPS: [
+    { id:"bump1", nome:"Bump 01 - SEU ITEM EXTRA", desc:"Descricao do item extra 01", img:"#URL_BUMP_1" },
+    { id:"bump2", nome:"Bump 02 - SEU ITEM EXTRA", desc:"Descricao do item extra 02", img:"#URL_BUMP_2" }
+  ]
+};
+
+var state = {
+  descontoAtivo:false, bumps:{}, icDisparado:false, modalMostrado:false,
+  paymentId:null, valorCobrado:null, pollTimer:null, expiraTimer:null, backTrap:false
+};
+
+function $(id){ return document.getElementById(id); }
+function brl(v){ return "R$ " + v.toFixed(2).replace(".", ","); }
+function novoEventId(){ return "ev_" + Date.now() + "_" + Math.random().toString(36).slice(2,10); }
+function getCookie(name){ var m=document.cookie.match(new RegExp("(^| )"+name+"=([^;]+)")); return m?m[2]:""; }
+
+/* dispara o MESMO evento no Pixel (navegador) e na CAPI (servidor) com o mesmo event_id (dedup) */
+function track(eventName, custom){
+  var eid = novoEventId();
+  try{ if(window.fbq){ fbq("track", eventName, custom||{}, { eventID: eid }); } }catch(e){ console.log("pixel", e); }
+  var payload = {
+    event_name: eventName, event_id: eid, event_source_url: location.href,
+    fbp: getCookie("_fbp"), fbc: getCookie("_fbc"), custom_data: custom||{},
+    user: {
+      email: ($("fEmail")?$("fEmail").value.trim():""),
+      phone: ($("fCel")?$("fCel").value.replace(/\D/g,""):""),
+      nome:  ($("fNome")?$("fNome").value.trim():"")
+    }
+  };
+  try{ fetch("/api/meta-event",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)}).catch(function(){}); }catch(e){}
+  return eid;
+}
+
+/* ---- calculo de preco (cliente exibe; servidor recalcula ao cobrar) ---- */
+function round2(v){ return Math.round(v*100)/100; }
+function precoBase(){ var p=CFG.PRODUTO.preco; if(state.descontoAtivo){ p=p*(1-CFG.DESCONTO_PCT/100); } return round2(p); }
+function bumpUnit(qtd){ if(qtd<=0) return CFG.BUMP_TIERS[0]; var idx=Math.min(qtd,CFG.BUMP_TIERS.length)-1; return CFG.BUMP_TIERS[idx]; }
+function bumpsSelecionados(){ return CFG.BUMPS.filter(function(b){ return state.bumps[b.id]; }).map(function(b){ return b.id; }); }
+function precoBumps(){ var q=bumpsSelecionados().length; if(q===0) return 0; return round2(bumpUnit(q)*q); }
+function totalAtual(){ return round2(precoBase()+precoBumps()); }
+function economiaBumps(){ var q=bumpsSelecionados().length; if(q===0) return 0; return round2(CFG.BUMP_BASE*q - bumpUnit(q)*q); }
+
+function atualizarTotal(){
+  refreshBumps();
+  $("totalVal").textContent = brl(totalAtual());
+  $("prodPreco").textContent = brl(precoBase());
+  if($("descTag")) $("descTag").classList.toggle("hidden", !state.descontoAtivo);
+  var btn=$("btnGerar");
+  if(btn && !btn.disabled) btn.textContent = "GERAR PIX E GARANTIR ACESSO - " + brl(totalAtual());
+  refreshHint();
+}
+function refreshHint(){
+  var hint=document.querySelector(".bump-hint"); if(!hint) return;
+  var q=bumpsSelecionados().length, eco=economiaBumps(), total=CFG.BUMPS.length;
+  if(q===0){ hint.textContent="Quanto mais "+CFG.ITEM_LABEL+" voce leva, mais desconto recebe hoje."; }
+  else if(q>=total && eco>0){ hint.textContent="Desconto maximo destravado: voce economizou "+brl(eco)+" hoje!"; }
+  else if(eco>0){ hint.textContent="Voce ja esta economizando "+brl(eco)+" hoje - adicione mais e aumente!"; }
+  else{ hint.textContent="Adicione mais 1 e comece a destravar seu desconto."; }
+}
+
+/* ---- render dos bumps (com piramide de desconto) ---- */
+var bumpRows={};
+function renderBumps(){
+  var box=$("bumpsBox"); box.innerHTML=""; bumpRows={};
+  CFG.BUMPS.forEach(function(b){
+    var row=document.createElement("label");
+    row.className="bump"; row.setAttribute("data-id",b.id);
+    row.innerHTML =
+      '<span class="b-badge hidden"></span>'+
+      '<input type="checkbox" />'+
+      '<img src="'+b.img+'" alt="" onerror="this.style.opacity=.3" loading="lazy"/>'+
+      '<div><div class="b-name">'+b.nome+'</div><div class="b-desc">'+b.desc+'</div><div class="b-price"></div></div>';
+    var chk=row.querySelector("input");
+    chk.addEventListener("change",function(){ state.bumps[b.id]=chk.checked; atualizarTotal(); });
+    bumpRows[b.id]={ row:row, priceEl:row.querySelector(".b-price"), badgeEl:row.querySelector(".b-badge") };
+    box.appendChild(row);
+  });
+  refreshBumps();
+}
+function refreshBumps(){
+  var qtd=bumpsSelecionados().length, base=CFG.BUMP_BASE, unit=qtd>0?bumpUnit(qtd):base;
+  var off=base>unit?Math.round((1-unit/base)*100):0;
+  CFG.BUMPS.forEach(function(b){
+    var ref=bumpRows[b.id]; if(!ref) return;
+    var marcado=!!state.bumps[b.id];
+    ref.row.classList.toggle("on",marcado);
+    ref.row.classList.toggle("promo",off>0 && !marcado);
+    if(off>0){ ref.priceEl.innerHTML='<s>'+brl(base)+'</s>'+brl(unit); ref.badgeEl.textContent="-"+off+"%"; ref.badgeEl.classList.remove("hidden"); }
+    else{ ref.priceEl.innerHTML=brl(unit); ref.badgeEl.classList.add("hidden"); }
+  });
+}
+
+/* ---- mascara de celular ---- */
+function mascaraCel(v){ v=v.replace(/\D/g,"").slice(0,11); if(v.length<=2) return v.length?"("+v:v; if(v.length<=7) return "("+v.slice(0,2)+") "+v.slice(2); return "("+v.slice(0,2)+") "+v.slice(2,7)+"-"+v.slice(7); }
+
+/* ---- navegacao: landing -> checkout ---- */
+function irParaCheckout(){
+  if($("page-vendas")) $("page-vendas").style.display="none";
+  $("page-checkout").style.display="block";
+  window.scrollTo(0,0);
+  /* trap do botao voltar (mobile) ativado SO ao entrar no checkout */
+  if(!state.backTrap){
+    state.backTrap=true;
+    try{
+      history.pushState(null,"",location.href);
+      window.addEventListener("popstate",function(){
+        if($("page-checkout").style.display==="block" && !$("sec-venda").classList.contains("hidden") && !state.modalMostrado){
+          abrirModalSaida(); history.pushState(null,"",location.href);
+        }
+      });
+    }catch(e){}
+  }
+}
+
+/* ---- modal de saida (cupom) ---- */
+function abrirModalSaida(){
+  if(state.modalMostrado) return;
+  if($("page-checkout").style.display!=="block") return;     /* so quando o checkout esta aberto */
+  if($("sec-venda").classList.contains("hidden")) return;    /* nao na tela de PIX/aprovado */
+  state.modalMostrado=true;
+  $("modalSaida").classList.remove("hidden");
+}
+function setupExitIntent(){
+  document.addEventListener("mouseout",function(e){ if(!e.relatedTarget && e.clientY<=0) abrirModalSaida(); });
+  if($("btnAplicarDesc")) $("btnAplicarDesc").addEventListener("click",function(){
+    state.descontoAtivo=true; atualizarTotal();
+    $("modalSaida").classList.add("hidden");
+    track("ViewContent",{content_name:"cupom_20_aplicado"});
+    var alvo=document.querySelector(".valor-row"); if(alvo) alvo.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  if($("btnPularDesc")) $("btnPularDesc").addEventListener("click",function(){ $("modalSaida").classList.add("hidden"); });
+}
+
+/* ---- gerar PIX ---- */
+function setupCheckout(){
+  var nome=$("fNome"), cel=$("fCel"), email=$("fEmail"), btn=$("btnGerar");
+  cel.addEventListener("input",function(){ cel.value=mascaraCel(cel.value); });
+  nome.addEventListener("input",function(){
+    if(!state.icDisparado && nome.value.trim().length>=2){ state.icDisparado=true; track("InitiateCheckout",{value:totalAtual(),currency:CFG.MOEDA}); }
+  });
+  btn.addEventListener("click",gerarPix);
+
+  function valido(){
+    if(nome.value.trim().length<3){ alert("Digite seu nome completo."); nome.focus(); return false; }
+    var dig=cel.value.replace(/\D/g,""); if(dig.length<10){ alert("Digite um WhatsApp valido com DDD."); cel.focus(); return false; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())){ alert("Digite um e-mail valido."); email.focus(); return false; }
+    return true;
+  }
+  function gerarPix(){
+    if(!valido()) return;
+    btn.disabled=true; btn.innerHTML='<span class="co-spinner"></span> GERANDO PIX...';
+    track("AddPaymentInfo",{value:totalAtual(),currency:CFG.MOEDA});
+    var body={ nome:nome.value.trim(), email:email.value.trim(), celular:cel.value.replace(/\D/g,""), desconto:state.descontoAtivo, bumps:bumpsSelecionados() };
+    fetch("/api/criar-pix",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(!data || !data.qr_code){ throw new Error(data && data.error ? data.error : "Falha ao gerar PIX"); }
+      state.paymentId=data.payment_id;
+      state.valorCobrado=(typeof data.valor==="number")?data.valor:totalAtual();
+      mostrarPix(data);
+    })
+    .catch(function(err){ console.log("gerarPix error",err); alert("Nao foi possivel gerar o PIX agora. Tente novamente."); btn.disabled=false; atualizarTotal(); });
+  }
+  function mostrarPix(data){
+    $("sec-venda").classList.add("hidden");
+    $("sec-pix").classList.remove("hidden");
+    window.scrollTo(0,0);
+    if(data.qr_code_base64){ $("qrImg").src="data:image/png;base64,"+data.qr_code_base64; }
+    $("copiaTxt").textContent=data.qr_code;
+    iniciarTimer(15*60); iniciarPolling();
+  }
+  $("btnCopiar").addEventListener("click",function(){
+    var txt=$("copiaTxt").textContent||"";
+    function ok(){ $("btnCopiar").textContent="CODIGO COPIADO!"; setTimeout(function(){ $("btnCopiar").textContent="COPIAR CODIGO PIX"; },2000); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(ok).catch(function(){ legacyCopy(txt); ok(); }); }
+    else{ legacyCopy(txt); ok(); }
+  });
+  function legacyCopy(txt){ var ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); }catch(e){} document.body.removeChild(ta); }
+}
+
+function iniciarTimer(segundos){
+  var t=segundos;
+  function tick(){
+    var m=Math.floor(t/60), s=t%60;
+    if($("pixTimer")) $("pixTimer").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+    if(t<=0){ clearInterval(state.expiraTimer); if($("pixUrgency")) $("pixUrgency").textContent="Tempo esgotado - gere um novo PIX se precisar."; return; }
+    t--;
+  }
+  tick(); state.expiraTimer=setInterval(tick,1000);
+}
+
+function iniciarPolling(){
+  if(!state.paymentId) return;
+  state.pollTimer=setInterval(function(){
+    fetch("/api/status-pix?id="+encodeURIComponent(state.paymentId))
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d && d.status==="approved"){ clearInterval(state.pollTimer); clearInterval(state.expiraTimer); aprovado(); }
+      else if(d && (d.status==="rejected" || d.status==="cancelled")){ clearInterval(state.pollTimer); if($("statusTxt")) $("statusTxt").textContent="Pagamento nao concluido. Gere um novo PIX."; }
+    })
+    .catch(function(e){ console.log("status error",e); });
+  },4000);
+}
+
+function aprovado(){
+  var valor=(typeof state.valorCobrado==="number")?state.valorCobrado:totalAtual();
+  track("Purchase",{value:valor,currency:CFG.MOEDA});
+  $("sec-pix").classList.add("hidden");
+  $("sec-obrigado").classList.remove("hidden");
+  window.scrollTo(0,0);
+  if($("accPrincipal")) $("accPrincipal").href=CFG.ACESSOS.principal;
+  var extra=$("accExtra");
+  if(extra){
+    extra.innerHTML="";
+    CFG.BUMPS.forEach(function(b){
+      if(state.bumps[b.id]){ var a=document.createElement("a"); a.href=CFG.ACESSOS[b.id]||"#"; a.target="_blank"; a.rel="noopener"; a.textContent="Acessar: "+b.nome; extra.appendChild(a); }
+    });
+  }
+}
+
+/* ---- init do checkout (roda na carga; elementos existem escondidos) ---- */
+(function initCheckout(){
+  if(!$("bumpsBox")) return;  /* so roda se o checkout existe nesta pagina */
+  $("prodNome").textContent=CFG.PRODUTO.nome;
+  $("prodImg").src=CFG.PRODUTO.capa;
+  var tb=$("bumpsTitulo"); if(tb) tb.textContent="Adicione mais "+CFG.ITEM_LABEL+" com desconto";
+  renderBumps();
+  atualizarTotal();
+  setupCheckout();
+  setupExitIntent();
+  track("ViewContent",{ content_name:CFG.PRODUTO.nome, value:CFG.PRODUTO.preco, currency:CFG.MOEDA });
+})();
+
 
 window.addEventListener('load',function(){
   setTimeout(function(){ initFan(); initCarousel(); initFaq(); initAnchors(); },100);
