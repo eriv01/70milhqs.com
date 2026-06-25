@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="age-locked">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
@@ -194,9 +194,45 @@ footer{background:var(--bg);padding:clamp(20px,4vw,28px) clamp(16px,4vw,20px) ca
 footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:380px;margin:0 auto}
 .footer-logo{font-family:'Montserrat',sans-serif;font-size:1rem;color:var(--green);margin-bottom:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
 /* regra de reduzir-movimento removida: estava desativando todas as animacoes */
+/* ====== PORTA DE IDADE (age gate) ====== */
+html.age-locked,html.age-locked body{overflow:hidden}
+#ageGate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;background:#080808;overflow-y:auto;}
+#ageGate .ag-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(0,230,118,.10) 0%,transparent 65%),radial-gradient(ellipse 60% 40% at 50% 100%,rgba(255,45,85,.07) 0%,transparent 60%),#080808;z-index:0;}
+#ageGate .ag-ono{position:absolute;font-family:'Montserrat',sans-serif;font-weight:900;text-transform:uppercase;pointer-events:none;user-select:none;}
+#ageGate .ag-ono-1{font-size:clamp(2rem,9vw,3.4rem);color:rgba(255,214,0,.12);top:8%;left:-2%;transform:rotate(-18deg)}
+#ageGate .ag-ono-2{font-size:clamp(1.6rem,7vw,2.6rem);color:rgba(0,230,118,.11);top:11%;right:-2%;transform:rotate(14deg)}
+#ageGate .ag-ono-3{font-size:clamp(1.5rem,6vw,2.4rem);color:rgba(255,45,85,.10);bottom:9%;left:3%;transform:rotate(-10deg)}
+#ageGate .ag-ono-4{font-size:clamp(2rem,9vw,3.2rem);color:rgba(0,230,118,.10);bottom:6%;right:-2%;transform:rotate(16deg)}
+.ag-card{position:relative;z-index:1;width:100%;max-width:380px;text-align:center;}
+.ag-warn{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,45,85,.5);background:rgba(255,45,85,.08);color:#ff6b85;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:9px 16px;border-radius:100px;margin-bottom:24px;line-height:1.3;}
+.ag-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,7vw,2.2rem);font-weight:900;line-height:1.2;margin-bottom:14px;}
+.ag-title span{display:block;color:var(--green)}
+.ag-sub{font-size:clamp(.82rem,3vw,.9rem);color:var(--muted);line-height:1.6;margin-bottom:30px;max-width:300px;margin-left:auto;margin-right:auto;}
+.ag-yes{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:linear-gradient(135deg,var(--green),var(--greend));color:#000;font-family:'Montserrat',sans-serif;font-size:clamp(.9rem,3.4vw,1rem);font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:18px;border-radius:14px;min-height:56px;box-shadow:0 8px 32px rgba(0,230,118,.45);animation:cta-pulse 2.4s ease-in-out infinite;transition:transform .15s;line-height:1.25;}
+.ag-yes:active{transform:scale(.97)}
+.ag-check{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;background:rgba(0,0,0,.22);font-size:14px;flex-shrink:0}
+.ag-no{display:inline-block;margin-top:18px;font-size:.82rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:8px;}
 </style>
 </head>
 <body>
+
+<!-- ====== PORTA DE IDADE: confirma maioridade antes de revelar o conteudo ====== -->
+<div id="ageGate" role="dialog" aria-modal="true" aria-label="Verificacao de idade">
+  <div class="ag-bg" aria-hidden="true"></div>
+  <div class="ag-ono ag-ono-1" aria-hidden="true">POW!</div>
+  <div class="ag-ono ag-ono-2" aria-hidden="true">BAM!</div>
+  <div class="ag-ono ag-ono-3" aria-hidden="true">ZAP!</div>
+  <div class="ag-ono ag-ono-4" aria-hidden="true">KA-POW!</div>
+  <div class="ag-card">
+    <span class="ag-warn">&#9888; Conte&uacute;do exclusivo para maiores de 18 anos</span>
+    <h1 class="ag-title">Voc&ecirc; tem <span>18 anos ou mais?</span></h1>
+    <p class="ag-sub">Este conte&uacute;do inclui material adulto +18 e &eacute; exclusivo para maiores de idade. Confirme para continuar.</p>
+    <button class="ag-yes" type="button" onclick="document.getElementById('ageGate').style.display='none';document.documentElement.classList.remove('age-locked');window.scrollTo(0,0);">
+      <span class="ag-check">&#10003;</span> Sim, tenho 18 anos - continuar
+    </button>
+    <a class="ag-no" href="https://www.google.com">N&atilde;o, sou menor de idade</a>
+  </div>
+</div>
 
 <div class="grain" aria-hidden="true"></div>
 
@@ -424,6 +460,7 @@ footer p{font-size:.7rem;color:var(--muted);line-height:1.8;max-width:380px;marg
   <div class="footer-logo">[SEU PRODUTO]</div>
   <p>
     Este site nao e afiliado, associado nem endossado pela Meta Platforms, Inc., Facebook ou Instagram.<br>
+    Conteudo destinado exclusivamente a maiores de 18 anos.<br>
     &copy; <span id="footYear"></span> [Sua marca] - Todos os direitos reservados - Politica de privacidade
   </p>
 </footer>
