@@ -1,29 +1,18 @@
 // ====================================================================
 // /api/criar-pix.js  -  cria pagamento PIX no Mercado Pago
-//
-// SEGURANCA: o preco e SEMPRE recalculado aqui no servidor.
-// O cliente so manda QUAIS itens; o valor cobrado vem desta tabela.
-// Os precos abaixo precisam ser IGUAIS aos do CFG no index.html.
-//
-// Variavel de ambiente necessaria (painel da Vercel):
-//   MP_ACCESS_TOKEN  -> Access Token do Mercado Pago (Producao)
 // ====================================================================
 
-// ---- EDITAR: mesma tabela de precos do index.html ----
 const PRODUTO = { nome: "pack hqs", preco: 17.00 };
-const DESCONTO_PCT = 20; // aplicado ao preco do produto (cupom do modal de saida)
+const DESCONTO_PCT = 20;
 
-// 2 bumps. O UNITARIO cai conforme a QTD selecionada.
-// idx 0 = 1 bump (7,90), idx 1 = 2 bumps (6,90 cada).
-// Precisa bater com CFG.BUMP_TIERS do index.html.
 const BUMP_NOMES = {
-  bump1: "hestais18",
+  bump1: "hentais18",
   bump2: "cenas proibidas"
 };
 const BUMP_TIERS = [7.90, 6.90];
-// ------------------------------------------------------
 
 function round2(v){ return Math.round(v * 100) / 100; }
+
 function cpfValido(v){
   var d = String(v || "").replace(/\D/g, "");
   if (d.length !== 11) return false;
@@ -48,13 +37,10 @@ function unitBump(qtd){
 function calcularTotal(comDesconto, bumpsIds){
   let total = PRODUTO.preco;
   if (comDesconto) total = total * (1 - DESCONTO_PCT / 100);
-
-  // mantem so ids validos (evita burla)
   const validos = (bumpsIds || []).filter(function(id){ return BUMP_NOMES[id]; });
   const qtd = validos.length;
   const unit = unitBump(qtd);
   total += unit * qtd;
-
   const itens = [PRODUTO.nome].concat(validos.map(function(id){ return BUMP_NOMES[id]; }));
   return { total: round2(total), descricao: itens.join(" + ") };
 }
@@ -72,14 +58,25 @@ module.exports = async function (req, res) {
   }
 
   try {
-    const cpf = String(body.cpf || "").replace(/\D/g, "");
-const desconto = body.desconto === true;
-const bumps = Array.isArray(body.bumps) ? body.bumps : [];
+    // ERRO 1 CORRIGIDO: body não estava sendo lido
+    const body = typeof req.body === "string" ? JSON.parse(req.body) : (req.body || {});
 
-if (!cpfValido(cpf)) {
-  res.status(400).json({ error: "cpf_invalido" });
-  return;
-}
+    const nome    = String(body.nome || "").trim();
+    const email   = String(body.email || "").trim();
+    const cpf     = String(body.cpf || "").replace(/\D/g, "");
+    const desconto = body.desconto === true;
+    const bumps   = Array.isArray(body.bumps) ? body.bumps : [];
+
+    // ERRO 2 CORRIGIDO: validações básicas
+    if (!nome || !email) {
+      res.status(400).json({ error: "campos_obrigatorios" });
+      return;
+    }
+
+    if (!cpfValido(cpf)) {
+      res.status(400).json({ error: "cpf_invalido" });
+      return;
+    }
 
     const partes = nome.split(" ");
     const first = partes[0] || "Cliente";
@@ -87,19 +84,19 @@ if (!cpfValido(cpf)) {
 
     const calc = calcularTotal(desconto, bumps);
 
+    // ERRO 3 CORRIGIDO: chave `payer` estava com fechamento duplicado
     const payload = {
       transaction_amount: calc.total,
       description: calc.descricao,
       payment_method_id: "pix",
       payer: {
-  email: email || "comprador@exemplo.com",
-  first_name: first,
-  last_name: last,
-  identification: {
-    type: "CPF",
-    number: cpf
-  }
-}
+        email: email || "comprador@exemplo.com",
+        first_name: first,
+        last_name: last,
+        identification: {
+          type: "CPF",
+          number: cpf
+        }
       }
     };
 
