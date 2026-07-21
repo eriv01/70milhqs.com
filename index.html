@@ -971,7 +971,8 @@ function setupCheckout(){
     return true;
   }
   function gerarPix(){
-    if(!valido(if(!cpfValido(cpf.value)){ alert("Digite um CPF valido."); cpf.focus(); return false; })) return;
+    if(!valido()) return;
+    if(!cpfValido(cpf.value)){ alert("Digite um CPF valido."); cpf.focus(); return false; }
     btn.disabled=true; btn.innerHTML='<span class="co-spinner"></span> GERANDO PIX...';
     track("AddPaymentInfo",{value:totalAtual(),currency:CFG.MOEDA});
     var body={ nome:nome.value.trim(), email:email.value.trim(), celular:cel.value.replace(/\D/g,""), cpf:cpf.value.replace(/\D/g,""), desconto:state.descontoAtivo, bumps:bumpsSelecionados() };
