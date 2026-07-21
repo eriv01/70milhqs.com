@@ -24,6 +24,20 @@ const BUMP_TIERS = [7.90, 6.90];
 // ------------------------------------------------------
 
 function round2(v){ return Math.round(v * 100) / 100; }
+function cpfValido(v){
+  var d = String(v || "").replace(/\D/g, "");
+  if (d.length !== 11) return false;
+  if (/^(\d)\1{10}$/.test(d)) return false;
+  var soma = 0, i;
+  for (i = 0; i < 9; i++) soma += parseInt(d[i], 10) * (10 - i);
+  var r1 = (soma * 10) % 11; if (r1 === 10) r1 = 0;
+  if (r1 !== parseInt(d[9], 10)) return false;
+  soma = 0;
+  for (i = 0; i < 10; i++) soma += parseInt(d[i], 10) * (11 - i);
+  var r2 = (soma * 10) % 11; if (r2 === 10) r2 = 0;
+  if (r2 !== parseInt(d[10], 10)) return false;
+  return true;
+}
 
 function unitBump(qtd){
   if (qtd <= 0) return 0;
@@ -58,11 +72,14 @@ module.exports = async function (req, res) {
   }
 
   try {
-    const body = typeof req.body === "string" ? JSON.parse(req.body) : (req.body || {});
-    const nome    = String(body.nome || "Cliente").trim();
-    const email   = String(body.email || "").trim();
-    const desconto = body.desconto === true;
-    const bumps   = Array.isArray(body.bumps) ? body.bumps : [];
+    const cpf = String(body.cpf || "").replace(/\D/g, "");
+const desconto = body.desconto === true;
+const bumps = Array.isArray(body.bumps) ? body.bumps : [];
+
+if (!cpfValido(cpf)) {
+  res.status(400).json({ error: "cpf_invalido" });
+  return;
+}
 
     const partes = nome.split(" ");
     const first = partes[0] || "Cliente";
@@ -75,9 +92,14 @@ module.exports = async function (req, res) {
       description: calc.descricao,
       payment_method_id: "pix",
       payer: {
-        email: email || "comprador@exemplo.com",
-        first_name: first,
-        last_name: last
+  email: email || "comprador@exemplo.com",
+  first_name: first,
+  last_name: last,
+  identification: {
+    type: "CPF",
+    number: cpf
+  }
+}
       }
     };
 
